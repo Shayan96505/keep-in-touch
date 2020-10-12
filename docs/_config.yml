@@ -1,0 +1,17 @@
+remote_theme: ddc-java/ddc-day
+repository_links:
+  enabled: false
+page_navigator:
+  enabled: false
+titles_from_headings:
+  enabled: false
+
+# Modify the contents below for the specific project.
+
+title: "KiT: Keep in Touch"
+description: "This is an app that reminds you to text
+              your homies and family members back. It will make
+              you  say, ME-WOW."
+author: 
+  name: "Shayan Golafshani"
+  
