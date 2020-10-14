@@ -1,7 +1,8 @@
-package edu.cnm.deepdive.keepintouch;
+package edu.cnm.deepdive.keepintouch.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import edu.cnm.deepdive.keepintouch.R;
 
 public class MainActivity extends AppCompatActivity {
 
