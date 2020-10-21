@@ -27,7 +27,7 @@ KiT accomplishes this by utilizing text message metadata from inbound and outbou
 
  Young Professionals | College Graduate
 --- | ---
-<img src="img/millenials.jpg" width="150"/> | <img src="img/millenials2.jpg" width="150"/>
+<img src="img/millenials.jpg" width="50%" height="50%"/> | <img src="img/millenials2.jpg" width="50%" height="50%"/>
 
 <!--- ![Millenials](img/millenials.jpg){width=50%} | ![College Graduate](img/millenials2.jpg) -->
 
