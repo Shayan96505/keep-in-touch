@@ -27,7 +27,9 @@ KiT accomplishes this by utilizing text message metadata from inbound and outbou
 
  Young Professionals | College Graduate
 --- | ---
-![Millenials](img/millenials.jpg){width=50%} | ![College Graduate](img/millenials2.jpg){width=50%}
+<img src="img/millenials.jpg" width="150"/> | <img src="img/millenials2.jpg" width="150"/>
+
+<!--- ![Millenials](img/millenials.jpg){width=50%} | ![College Graduate](img/millenials2.jpg) -->
 
 > As a  millienial, I want to respond to my friends, acquaintances, and work connections in a timely manner to build my social network and create deeper and more meaningful connections with the individuals I've met throughout my life. This app will help me for the times I become too forgetful or busy.
 
