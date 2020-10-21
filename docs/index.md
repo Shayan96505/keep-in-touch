@@ -1,8 +1,8 @@
 ## Project Description
 
-This app is focused on helping young people who forget to respond to texts to **_keep in touch_**. Keep in Touch, also known as KiT, helps forgetful users and people that forget to nurture their relationships due to the busyness of modern life. KiT directly aids users that struggle with anxiety to make it past "texting small-talk" when exchanging numbers with a new connection by prolonging conversations and interactions, via seamless reminders to "keep in touch." If three days since the last message have passed, KiT nudges our users to text back. Over time, these continual reminders can blossom fresh friendships and unlikely connections, that may have otherwise died. KiT also doubles as an app for forgetful family members so that they can simply _keep in touch_ with one another.
+Keep in Touch is an app focused on helping young people who forget to respond to texts to **_keep in touch_**. Keep in Touch, also known as KiT, helps forgetful users and people that forget to nurture their relationships due to the busyness of modern life. KiT directly aids users that struggle with anxiety to make it past "texting small-talk" when exchanging numbers with a new connection by prolonging conversations and interactions, via seamless reminders to "keep in touch." If three days since the last message have passed, KiT nudges our users to text back. Over time, these continual reminders can blossom fresh friendships and unlikely connections, that may have otherwise died. KiT also doubles as an app for forgetful family members so that they can simply _keep in touch_ with one another.
 
-KiT accomplishes this by utilizing text message metadata from inbound and outbound messages and corresponding phone contacts. It will utilize the built in messages app in Android to send short  _keep in touch_ messages to friends and family.
+KiT accomplishes this by using text message metadata from inbound and outbound messages and corresponding phone contacts. It utilizes the built in messages app in Android to send short  _keep in touch_ messages to friends and family.
 
 ### Key features
 
@@ -22,16 +22,18 @@ KiT accomplishes this by utilizing text message metadata from inbound and outbou
 > As a teen with anxiety, I don't want to miss out. Kit will help me step past the "over-thinking" in my head, so that I can stay connected digitally and let my friends know how I'm doing.
 
 
-#### Millenials 
+#### Millenials & College Graduates 
 <!--- ![Millenials](img/millenials.jpg)|![Millenials](img/millenials2.jpg) -->
 
  Young Professionals | College Graduate
 --- | ---
-<img src="img/millenials.jpg" width="50%" height="50%"/> | <img src="img/millenials2.jpg" width="50%" height="50%"/>
+<img src="img/millenials.jpg" width="80%" height="80%"/> | <img src="img/millenials2.jpg" width="80%" height="80%"/>
 
 <!--- ![Millenials](img/millenials.jpg){width=50%} | ![College Graduate](img/millenials2.jpg) -->
 
-> As a  millienial, I want to respond to my friends, acquaintances, and work connections in a timely manner to build my social network and create deeper and more meaningful connections with the individuals I've met throughout my life. This app will help me for the times I become too forgetful or busy.
+> As a  millienial, I want to respond to my friends, acquaintances, and work connections in a timely manner so I can build my social network and create deeper, more meaningful connections with the people I've met. This app will help me for the times I become too forgetful or busy.
+
+> As a college graduate, I can barely handle \#adulting. I want an easy way to check all my old messages to make sure I didn't forget to message my friends back, so that I can quickly stay on top of my messages while I learn how to manage paying bills and cooking. 
 
 #### Parents ![Parents](img/parents2.jpg)
 
