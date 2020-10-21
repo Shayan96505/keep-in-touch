@@ -4,9 +4,9 @@ This app is focused on helping young people who forget to respond to texts to **
 
 KiT relies on text message metadata from received and sent messages and corresponding phone contacts, to nudge a user to auto-reply. It will utilize the built in messages app in Android to send short  _keep in touch_ messages to friends and family.
 
-* 
+## Bullet list of functionality
 
-## [Intended Users](intendedUsers.md)
+## [Intended Users](intendedUsers.md "Redirect to Intended Users")
 
 #### Teens![Teens](img/teens.jpg)
 
@@ -60,10 +60,8 @@ Client component will need access to special services including:
 This may work though: [Smart Reply Machine Learning Kit](https://developers.google.com/ml-kit/language/smart-reply/android),
 technically this would be on-device, so it may not count as an external service.
 
-<!--- * Google Gmail automessage API portion of gmail.
-	* [GOOGLE AUTOMESSAGE API](https://www.googleapis.com/auth/gmail.compose)
-
-I may scrape some greetings off [here](https://preply.com/en/blog/22-useful-english-greetings-for-every-day/#scroll-to-heading-18). --->
+<!--- 
+I still may scrape some greetings off of [this website](https://preply.com/en/blog/22-useful-english-greetings-for-every-day/#scroll-to-heading-18). --->
 
 
 ## Stretch goals/possible enhancements 
@@ -84,5 +82,10 @@ I would like to implement some of the stretch features of this app, on at least 
 
 ## Wireframe
 
-### KiT Keep in Touch Android Application Wireframe:
-![Wireframe diagram](img/wireframe.png)
+#### Keep in Touch Android App Layout
+[![Wireframe diagram](img/wireframe.png)](pdf/kitWireframe.pdf, "Redirect to Wireframe as PDF")
+
+## Entity-Relationship Diagram
+
+#### Persistent Device Data Modeling
+[![Wireframe diagram](img/secondKitERD.png)](pdf/secondKitERD.pdf, "Redirect to ERD as PDF")
