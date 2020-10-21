@@ -11,7 +11,7 @@ KiT accomplishes this by using text message metadata from inbound and outbound m
 * Selection of user-type specified auto-replies
     > Allows users to gain access to specified auto-replies based on the user-type selected when they first download the app
 
-## Intended Users
+## [Intended Users](work/intendedUsers.md)
 
 ## KiT users
 
@@ -30,7 +30,7 @@ KiT accomplishes this by using text message metadata from inbound and outbound m
 
  Young Professionals | College Graduate
 --- | ---
-<img src="img/millenials.jpg" width="80%" height="80%"/> | <img src="img/millenials2.jpg" width="80%" height="80%"/>
+<img src="img/millenials.jpg" width="500px"/> | <img src="img/millenials2.jpg" width="500px" />
 
 <!--- ![Millenials](img/millenials.jpg){width=50%} | ![College Graduate](img/millenials2.jpg) -->
 
@@ -78,12 +78,6 @@ Client components will need access to special services including:
 * Text message metadata
 * [Smart Reply Machine Learning Kit](https://developers.google.com/ml-kit/language/smart-reply/android)
 
-## Wireframe
+## [Wireframe](work/wireframe.md)
 
-#### Keep in Touch Android App Layout
-[![Wireframe diagram](img/wireframe.png)](pdf/kitWireframe.pdf "Redirect to Wireframe as PDF")
-
-## Entity-Relationship Diagram
-
-#### Persistent Device Data Modeling
-[![Entity-Relationship diagram](img/thirdKitERD.png)](pdf/thirdKitERD.pdf "Redirect to ERD as PDF")
+## [Entity-Relationship Diagram](work/entityRelationshipDiagram.md)
