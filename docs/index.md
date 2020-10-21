@@ -1,12 +1,19 @@
 ## Project Description
 
-This app is focused on helping young people who forget to respond to texts to **_keep in touch_**. Keep in Touch, also known as KiT, helps forgetful users and those who forget to nurture their relationships amidst the busyness of modern life and multitasking. KiT directly aids users that struggle with anxiety to make it past "texting small talk" when exchanging numbers with a stranger, by prolonging conversations and interactions, via seamless reminders to "keep in touch," after three days have passed. Over time these continual reminders can blossom fresh friendships and unlikely connections, that may have died out. KiT also doubles as an app for forgetful family members so that they can simply _keep in touch_ with one another.
+This app is focused on helping young people who forget to respond to texts to **_keep in touch_**. Keep in Touch, also known as KiT, helps forgetful users and people that forget to nurture their relationships due to the busyness of modern life. KiT directly aids users that struggle with anxiety to make it past "texting small-talk" when exchanging numbers with a new connection by prolonging conversations and interactions, via seamless reminders to "keep in touch." If three days since the last message have passed, KiT nudges our users to text back. Over time, these continual reminders can blossom fresh friendships and unlikely connections, that may have otherwise died. KiT also doubles as an app for forgetful family members so that they can simply _keep in touch_ with one another.
 
-KiT relies on text message metadata from received and sent messages and corresponding phone contacts, to nudge a user to auto-reply. It will utilize the built in messages app in Android to send short  _keep in touch_ messages to friends and family.
+KiT accomplishes this by utilizing text message metadata from inbound and outbound messages and corresponding phone contacts. It will utilize the built in messages app in Android to send short  _keep in touch_ messages to friends and family.
 
-## Bullet list of functionality
+### Some key features
+
+* Ignore contact 
+    > Allows the user to not be reminded to message a contact back. After three confirmed ignores, the app will not nudge the user, until the user changes overrides that in a settings menu.
+* Selection of user-specified auto-replies
+    > Allows to gain access to specified auto-replies based on the user-type selection when they first download the app
 
 ## [Intended Users](intendedUsers.md "Redirect to Intended Users")
+
+## Photos of your typical KiT users
 
 #### Teens![Teens](img/teens.jpg)
 
@@ -64,7 +71,7 @@ technically this would be on-device, so it may not count as an external service.
 I still may scrape some greetings off of [this website](https://preply.com/en/blog/22-useful-english-greetings-for-every-day/#scroll-to-heading-18). --->
 
 
-## Stretch goals/possible enhancements 
+## Stretch goals and possible enhancements 
 
 I would like to implement some of the stretch features of this app, on at least a _barebones_ level, for one social media platform. Hopefully, it will be for a commonly used one like FB messenger. At a barebones level in another app, I would just like to prompt a user to "KiT" message a friend on Facebook if a certain amount of time has passed since they last messaged each other, that's it.
 
@@ -83,9 +90,9 @@ I would like to implement some of the stretch features of this app, on at least 
 ## Wireframe
 
 #### Keep in Touch Android App Layout
-[![Wireframe diagram](img/wireframe.png)](pdf/kitWireframe.pdf, "Redirect to Wireframe as PDF")
+[![Wireframe diagram](img/wireframe.png)](pdf/kitWireframe.pdf "Redirect to Wireframe as PDF")
 
 ## Entity-Relationship Diagram
 
 #### Persistent Device Data Modeling
-[![Wireframe diagram](img/secondKitERD.png)](pdf/secondKitERD.pdf, "Redirect to ERD as PDF")
+[![Entity-Relationship diagram](img/thirdKitERD.png)](pdf/thirdKitERD.pdf "Redirect to ERD as PDF")
