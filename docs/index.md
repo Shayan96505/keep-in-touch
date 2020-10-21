@@ -1,23 +1,20 @@
-## Summary
+## Project Description
 
-This will be an app focused on helping younger people (teens, college grads, and young professionals) who forget to text their friends back. This app will help forgetful users or those who struggle to manage inter-personal relationships, amidst the busyness of modern life. It will directly help users that struggle with anxiety to go beyond formal "text banter" when meeting a stranger and exchanging numbers, by prolonging conversations and interactions over a longer period of time in the hope of blossoming new friendships and deeper connections. It will also use the same set of features, to double as an app for forgetful family members, that similarly struggle to text or stay in touch with one another.
+This app is focused on helping young people who forget to respond to texts to **_keep in touch_**. Keep in Touch, also known as KiT, helps forgetful users and those who forget to nurture their relationships amidst the busyness of modern life and multitasking. KiT directly aids users that struggle with anxiety to make it past "texting small talk" when exchanging numbers with a stranger, by prolonging conversations and interactions, via seamless reminders to "keep in touch," after three days have passed. Over time these continual reminders can blossom fresh friendships and unlikely connections, that may have died out. KiT also doubles as an app for forgetful family members so that they can simply _keep in touch_ with one another.
 
-The app will accomplish intended functionality by relying on reading text message metadata from received and sent text messages. It will utilize the built in messages app in Android to send short **"KiTs"**, __keep in touch messages__, to friends and family to continue conversations for a period of months, rather than minutes.
+KiT relies on text message metadata from received and sent messages and corresponding phone contacts, to nudge a user to auto-reply. It will utilize the built in messages app in Android to send short  _keep in touch_ messages to friends and family.
 
+* 
 
-## Intended users
+## [Intended Users](intendedUsers.md)
 
-* Young teens-- particularly,  for those who use social media and messaging platforms, but struggle with social-anxiety
-> As a young teen, I want to text my friends back more often, so that  I can stay better connected and grow my relationships with them. I also don't want to feel FOMO, so I think this app will help me step past the "over-thinking" in my head and lead to more interactions digitally and eventually in-person.
+#### Teens![Teens](img/teens.jpg)
 
-* Millenials-- particularly,  for those who have just graduated college or live on their own and are working a busy job in a new city
-> As a  millienial, I want to respond to my friends, acquaintances, and work connections in a timely manner to build my social network and create deeper and more meaningful connections with the individuals I've met throughout my life. This app will help me for the times I become too forgetful or busy.
+#### Millenials ![Millenials](img/millenials.jpg)
 
-* Parents-- particularly, for those who want to go above and beyond in parenting duties and realize that it's quite hard to manage a family  
-> As a forgetful parent, I want to check in on my kids and parents more often to make sure they are okay and have everything they need. By using this app, I wont have to worry if I forget about them when work gets busy, because I'll be reminded to send a _**KiT**_.
+#### Parents ![Parents](img/parents.jpg)
 
-* Grandparents-- particularly, for those hip grannies and gramps that are adventurous and like to do things on their own
-> As a grandparent, I want to let my children and grandchildren know that I'm okay every so often. However, I can't handle these new-fangled devices. I want a basic app that helps me, so my family doesn't have to worry about me. Hopefully they'll also remember to call me back more often too.
+#### Grandparents ![Grandparents](img/grandparents.jpg)
 
 ## Functionality
 
