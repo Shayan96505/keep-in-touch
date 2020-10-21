@@ -4,24 +4,40 @@ This app is focused on helping young people who forget to respond to texts to **
 
 KiT accomplishes this by utilizing text message metadata from inbound and outbound messages and corresponding phone contacts. It will utilize the built in messages app in Android to send short  _keep in touch_ messages to friends and family.
 
-### Some key features
+### Key features
 
 * Ignore contact 
-    > Allows the user to not be reminded to message a contact back. After three confirmed ignores, the app will not nudge the user, until the user changes overrides that in a settings menu.
-* Selection of user-specified auto-replies
-    > Allows to gain access to specified auto-replies based on the user-type selection when they first download the app
+    > Allows the user to not be reminded to message a contact back. After three confirmed ignores, the app will not nudge the user until the user overrides the ignore.
+* Selection of user-type specified auto-replies
+    > Allows users to gain access to specified auto-replies based on the user-type selected when they first download the app
 
-## [Intended Users](intendedUsers.md "Redirect to Intended Users")
+## Intended Users
 
-## Photos of your typical KiT users
+## KiT users
 
 #### Teens![Teens](img/teens.jpg)
 
-#### Millenials ![Millenials](img/millenials.jpg)
+> As a teen, I want to make sure I don't forget to text my friends back so that  I can stay connected with what's going on and foster my friendships.
 
-#### Parents ![Parents](img/parents.jpg)
+> As a teen with anxiety, I don't want to miss out. Kit will help me step past the "over-thinking" in my head, so that I can stay connected digitally and let my friends know how I'm doing.
+
+
+#### Millenials 
+<!--- ![Millenials](img/millenials.jpg)|![Millenials](img/millenials2.jpg) -->
+
+ Young Professionals | College Graduate
+--- | ---
+![Millenials](img/millenials.jpg) | ![College Graduate](img/millenials2.jpg)
+
+> As a  millienial, I want to respond to my friends, acquaintances, and work connections in a timely manner to build my social network and create deeper and more meaningful connections with the individuals I've met throughout my life. This app will help me for the times I become too forgetful or busy.
+
+#### Parents ![Parents](img/parents2.jpg)
+
+> As a forgetful parent, I want to check in on my family more often to make sure they have everything they need. By using KiT, I wont have to worry if I forget about them when work or taking care of my younger kids gets hectic, because I'll be reminded to send a _**KiT**_.
 
 #### Grandparents ![Grandparents](img/grandparents.jpg)
+
+> As a grandparent, I want to let my family know that I'm okay every so often. However, I can't navigate apps. I want a basic app that helps me _keep in touch_, so my family doesn't worry about me, but also remembers to call me back.
 
 ## Functionality
 
@@ -46,15 +62,6 @@ default profile and default _KiT_ messages based on their user profile type.
 	* Example message: _"Hey, sorry for not responding. I've been feeling anxious. How have you been doing lately? I want to follow up on our last messages ..."_
 
 
-## Persistent data
-
-* Last messaged date
-* Contact Info
-* Incoming/ Outcoming text metadata
-* Ignores/ Ignored contacts
-* Generic KiT messages and auto-reply message templates
-
-    
 ## Device/external services
 
 Client component will need access to special services including: 
