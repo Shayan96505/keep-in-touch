@@ -22,7 +22,10 @@ KiT accomplishes this by using text message metadata from inbound and outbound m
 > As a teen with anxiety, I don't want to miss out. Kit will help me step past the "over-thinking" in my head, so that I can stay connected digitally and let my friends know how I'm doing.
 
 
-#### Millenials & College Graduates 
+#### Millenials 
+![Millenials](img/millenials.jpg)
+
+#### College Graduates 
 <!--- ![Millenials](img/millenials.jpg)|![Millenials](img/millenials2.jpg) -->
 
  Young Professionals | College Graduate
@@ -68,35 +71,12 @@ default profile and default _KiT_ messages based on their user profile type.
 
 ## Device/external services
 
-Client component will need access to special services including: 
+Client components will need access to special services including: 
 
-* contacts
-* messaging
-* text message metadata
-* I'm considering hard-coding string options, if I can't find a good API.
-
-This may work though: [Smart Reply Machine Learning Kit](https://developers.google.com/ml-kit/language/smart-reply/android),
-technically this would be on-device, so it may not count as an external service.
-
-<!--- 
-I still may scrape some greetings off of [this website](https://preply.com/en/blog/22-useful-english-greetings-for-every-day/#scroll-to-heading-18). --->
-
-
-## Stretch goals and possible enhancements 
-
-I would like to implement some of the stretch features of this app, on at least a _barebones_ level, for one social media platform. Hopefully, it will be for a commonly used one like FB messenger. At a barebones level in another app, I would just like to prompt a user to "KiT" message a friend on Facebook if a certain amount of time has passed since they last messaged each other, that's it.
-
-* Other possible platform implementations
-	* KiT implementation on Facebook Messenger
-	* KiT implementation on WhatsApp
-	
-
-* Other potential features to be implemented on KiT:
-	* KiT favorite contacts (Similar to T-mobile fave-five)
-	* A feature that texts their friends who text them while they're away on vacation about when they'll get back to them. 
-	* An ignore option to ignore messaging a particular person back, if they **ignore** a contact 3 times in a row, no more notifications will pop-up reminding the user to "KiT" the contact they ignored 3 times. This list of contacts can be overrode in the settings menu at a later time.
-	* KiT motivational quotes selection in app.
-	* Dog Theme for those who love their "woof"-ers
+* Contacts Native Android App
+* Messaging Native Android App
+* Text message metadata
+* [Smart Reply Machine Learning Kit](https://developers.google.com/ml-kit/language/smart-reply/android)
 
 ## Wireframe
 
