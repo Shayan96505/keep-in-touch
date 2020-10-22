@@ -1,2 +1,2 @@
-#### Keep in Touch Android App Layout
-[![Wireframe diagram](../img/wireframe.png)](../pdf/kitWireframe.pdf "Redirect to Wireframe as PDF")
+#### Keep in Touch Entity-Relationship Diagram
+[![Entity-Relationship Diagram](../img/thirdKitERD.png)](../pdf/thirdKitERD.pdf "Redirect to ERD as PDF")
