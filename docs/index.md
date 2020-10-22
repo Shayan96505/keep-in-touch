@@ -18,10 +18,10 @@ KiT accomplishes this by using text message metadata from inbound and outbound m
 * Different KiT themes
     > Customize the feel of your KiT experience with a Dark Theme, Light Theme, Cat Theme, or Dog Theme.
 
-## [Intended Users](work/intendedUsers.md "Redirect to Intended Users page")
+## [Intended Users](work/intendedUsers.md)
 
-## [Cloud or device-based services & data](work/deviceServices.md "Redirect to Device Services page")
+## [Cloud or device-based services & data](work/deviceServices.md)
 
-## [Wireframe](work/wireframe.md "Redirect to Wireframe page")
+## [Wireframe](work/wireframe.md)
 
-## [Entity-Relationship Diagram](work/entityRelationshipDiagram.md "Redirect to ERD page")
+## [Entity-Relationship Diagram](work/entityRelationshipDiagram.md)
