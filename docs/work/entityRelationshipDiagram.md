@@ -1,2 +1,2 @@
-#### Persistent Device Data Modeling
-[![Entity-Relationship diagram](../img/thirdKitERD.png)](../pdf/thirdKitERD.pdf "Redirect to ERD as PDF")
+#### Keep in Touch Android App Layout
+[![Wireframe diagram](../img/wireframe.png)](../pdf/kitWireframe.pdf "Redirect to Wireframe as PDF")
