@@ -46,4 +46,6 @@ public class User {
   private long userTypeId;
 
   //TODO think about whether or not it would be useful to store a user's name as a String
+  //TODO think about where I want to put @NONnull annotations and also about which getters and setter
+  // that I need
 }
