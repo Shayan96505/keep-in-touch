@@ -45,7 +45,31 @@ public class User {
   @ColumnInfo(name = "user_type_id", index = true)
   private long userTypeId;
 
+  public long getId() {
+    return id;
+  }
+
+  public void setId(long id) {
+    this.id = id;
+  }
+
+  public String getOauthKey() {
+    return oauthKey;
+  }
+
+  public void setOauthKey(String oauthKey) {
+    this.oauthKey = oauthKey;
+  }
+
+  public long getUserTypeId() {
+    return userTypeId;
+  }
+
+  public void setUserTypeId(long userTypeId) {
+    this.userTypeId = userTypeId;
+  }
+
   //TODO think about whether or not it would be useful to store a user's name as a String
-  //TODO think about where I want to put @NONnull annotations and also about which getters and setter
+  //TODO think about where I want to put @Nonnull annotations and also about which getters and setter
   // that I need
 }
