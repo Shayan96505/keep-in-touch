@@ -43,7 +43,7 @@ public interface UserDao {
 
   //TODO Make another query
   //@Query("SELECT auto_reply_id, message WHERE userTypeId = :UserTypeId")
-  LiveData<List<IgnoreStatus>> IgnoreStatus(long IgnoreStatus);
+  //LiveData<List<IgnoreStatus>> IgnoreStatus(long IgnoreStatus);
 
 
 

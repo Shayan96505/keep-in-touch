@@ -42,7 +42,7 @@ public interface AutoReplyDao {
 
   //TODO update your query
  // @Query("SELECT auto_reply_id, message WHERE userTypeId = :UserTypeId")
-  LiveData<List<AutoReply>> getAutoRepliesWithUserType(long UserTypeId);
+  //LiveData<List<AutoReply>> getAutoRepliesWithUserType(long UserTypeId);
 
 
 }
