@@ -2,6 +2,7 @@ package edu.cnm.deepdive.keepintouch;
 
 import android.app.Application;
 import com.facebook.stetho.Stetho;
+import edu.cnm.deepdive.keepintouch.service.GoogleSignInService;
 import edu.cnm.deepdive.keepintouch.service.KitDatabase;
 import io.reactivex.schedulers.Schedulers;
 
@@ -14,7 +15,7 @@ public class KeepInTouchApplication extends Application {
     Stetho.initializeWithDefaults(this);
 
     //haven't ported over the google sign in yet.
-    //GoogleSignInService.setContext(this);
+    GoogleSignInService.setContext(this);
     KitDatabase.setContext(this);
 
     //Use this to kickstart the database
