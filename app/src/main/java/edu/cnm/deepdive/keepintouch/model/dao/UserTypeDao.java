@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.Query;
 import androidx.room.Update;
-import edu.cnm.deepdive.keepintouch.model.entity.IgnoreStatus;
 import edu.cnm.deepdive.keepintouch.model.entity.UserType;
 import io.reactivex.Single;
 import java.util.Collection;
@@ -15,35 +15,39 @@ import java.util.List;
 public interface UserTypeDao {
 
   @Insert
-  Single<Long> insert (UserType userType);
+  Single<Long> insert(UserType userType);
 
   @Insert
-  Single<List<Long>> insert (UserType... userTypes);
+  Single<List<Long>> insert(UserType... userTypes);
 
   @Insert
-  Single<List<Long>> insert (Collection<UserType> userTypes);
+  Single<List<Long>> insert(Collection<UserType> userTypes);
 
   @Update
-  Single<Integer> update (UserType userType);
+  Single<Integer> update(UserType userType);
 
   @Update
-  Single<Integer> update (UserType... userTypes);
+  Single<Integer> update(UserType... userTypes);
 
   @Update
-  Single<Integer> update (Collection<UserType> userTypes);
+  Single<Integer> update(Collection<UserType> userTypes);
 
   @Delete
-  Single<Integer> delete (UserType userType);
+  Single<Integer> delete(UserType userType);
 
   @Delete
-  Single<Integer> delete (UserType... userTypes);
+  Single<Integer> delete(UserType... userTypes);
 
   @Delete
-  Single<Integer> delete (Collection<UserType> userTypes);
+  Single<Integer> delete(Collection<UserType> userTypes);
 
   //TODO Make another query
-  //@Query("SELECT auto_reply_id, message WHERE userTypeId = :UserTypeId")
-  //LiveData<List<IgnoreStatus>> IgnoreStatus(long IgnoreStatus);
+
+  @Query("SELECT * FROM  usertype WHERE `user_type_id` = :userTypeId")
+  LiveData<UserType> getUserType(long userTypeId);
+
+  @Query("SELECT user_type_id FROM usertype WHERE `name` = :name")
+  LiveData<UserType> getUserTypeByName(String name);
 
 
 }
