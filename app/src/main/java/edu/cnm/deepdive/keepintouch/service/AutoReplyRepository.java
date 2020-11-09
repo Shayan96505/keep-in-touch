@@ -11,7 +11,6 @@ import java.util.List;
 public class AutoReplyRepository {
 
   private final Context context;
-
   private final AutoReplyDao autoReplyDao;
 
   public AutoReplyRepository(Context context) {

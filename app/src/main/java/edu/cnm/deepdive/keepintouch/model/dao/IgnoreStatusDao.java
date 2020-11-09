@@ -42,13 +42,18 @@ public interface IgnoreStatusDao {
   @Delete
   Single<Integer> delete (Collection<IgnoreStatus> ignoreStatuses);
 
+  //selecting the most ignored contacts
   //TODO Make another query
-  @Query("SELECT * FROM 'ignorestatus' WHERE contact_Uri = :contactUri ORDER BY count ASC")
-  LiveData<List<IgnoreStatus>> getMostIgnoredContactsInOrder (String contactUri);
 
-  @Query("SELECT contact_uri FROM 'ignorestatus' WHERE :count >= 3")
-  LiveData<List<IgnoreStatus>> getAllIgnoredContacts(int count);
+  @Query("SELECT * FROM 'IgnoreStatus' WHERE contact_Uri = :contactUri")
+  LiveData<IgnoreStatus> getIgnoreStatusForContact (String contactUri);
 
-  @Query("SELECT * FROM  ignorestatus WHERE `ignore_status_id` = :ignoreStatusId")
-  LiveData<User> getIgnoreStatus(long ignoreStatusId);
+  @Query("SELECT * FROM 'IgnoreStatus' ORDER BY count DESC LIMIT :numContacts")
+  LiveData<List<IgnoreStatus>> getMostIgnoredContacts (int numContacts);
+
+  @Query("SELECT * FROM 'IgnoreStatus' WHERE count >= :ignoreLimit")
+  LiveData<List<IgnoreStatus>> getAllIgnoredContacts(int ignoreLimit);
+
+  @Query("SELECT * FROM `IgnoreStatus` WHERE `ignore_status_id` = :ignoreStatusId")
+  LiveData<IgnoreStatus> getIgnoreStatus(long ignoreStatusId);
 }

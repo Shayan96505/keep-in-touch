@@ -42,11 +42,12 @@ public interface UserDao {
   Single<Integer> delete(Collection<User> users);
 
   //TODO Make another query
+  // check to make sure this query is necessary, it's likely not
   @Query("SELECT * FROM  User WHERE `user_type_id` = :userTypeId")
-  LiveData<List<User>> getUsers(long userTypeId);
+  LiveData<List<User>> getUserByUserType(long userTypeId);
 
   @Query("SELECT * FROM  User WHERE `user_id` = :userId")
-  LiveData<User> getUser(long userId);
+  LiveData<User> getUserById(long userId);
 
   @Query("SELECT * FROM  User WHERE `oauth_key` = :oauthKey")
   Single<User> getUserByOauthKey(String oauthKey);

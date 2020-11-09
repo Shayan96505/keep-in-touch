@@ -43,10 +43,10 @@ public interface UserTypeDao {
 
   //TODO Make another query
 
-  @Query("SELECT * FROM  usertype WHERE `user_type_id` = :userTypeId")
+  @Query("SELECT * FROM UserType WHERE `user_type_id` = :userTypeId")
   LiveData<UserType> getUserType(long userTypeId);
 
-  @Query("SELECT user_type_id FROM usertype WHERE `name` = :name")
+  @Query("SELECT * FROM UserType WHERE `name` = :name")
   LiveData<UserType> getUserTypeByName(String name);
 
 
