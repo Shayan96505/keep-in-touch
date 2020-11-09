@@ -3,6 +3,8 @@
   xmlns:tools="http://schemas.android.com/tools"
   package="edu.cnm.deepdive.keepintouch">
 
+  <uses-permission android:name="android.permission.INTERNET"/>
+
   <application
     android:name=".KeepInTouchApplication"
     android:allowBackup="false"
@@ -12,12 +14,15 @@
     android:supportsRtl="true"
     android:theme="@style/AppTheme"
     tools:ignore="AllowBackup">
+
     <activity android:name=".controller.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
 
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
+    </activity>
+    <activity android:name=".controller.LoginActivity">
     </activity>
   </application>
 

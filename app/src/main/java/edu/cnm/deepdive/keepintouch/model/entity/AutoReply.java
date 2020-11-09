@@ -33,6 +33,7 @@ public class AutoReply {
   @ColumnInfo(name = "message")
   private String message;
 
+  @SuppressWarnings("NullableProblems")
   @NonNull
   @ColumnInfo(name = "user_type_id")
   private long userTypeId;

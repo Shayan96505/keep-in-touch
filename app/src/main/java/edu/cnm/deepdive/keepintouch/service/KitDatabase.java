@@ -15,8 +15,7 @@ import edu.cnm.deepdive.keepintouch.model.entity.UserType;
 
 @Database(entities = {AutoReply.class, IgnoreStatus.class, User.class, UserType.class},
     version = 1,
-    exportSchema = false)
-
+    exportSchema = true)
 public abstract class KitDatabase extends RoomDatabase{
 
     private static final String DB_NAME = "kit_db";

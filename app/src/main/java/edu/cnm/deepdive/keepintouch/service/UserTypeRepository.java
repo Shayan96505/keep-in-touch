@@ -1,6 +1,7 @@
 package edu.cnm.deepdive.keepintouch.service;
 
 import android.content.Context;
+import androidx.lifecycle.LiveData;
 import edu.cnm.deepdive.keepintouch.model.dao.UserTypeDao;
 import edu.cnm.deepdive.keepintouch.model.entity.UserType;
 import io.reactivex.Completable;
@@ -33,14 +34,12 @@ public class UserTypeRepository {
   }
 
 
-  //TODO Check out why these queries are giving you errors
+  public LiveData<UserType> getUserType(long userTypeId) {
+    return userTypeDao.getUserType(userTypeId);
+  }
 
-  //LiveData<UserType> getUserType(long userTypeId){
-    //return UserTypeDao.getUserType(userTypeId);
-  //}
-
-  //LiveData<UserType> getUserTypeByName(String name){
-    //return UserTypeDao.getUserTypeByName(name);
-  //}
+  public LiveData<UserType> getUserTypeByName(String name) {
+    return userTypeDao.getUserTypeByName(name);
+  }
 
 }

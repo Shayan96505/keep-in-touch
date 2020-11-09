@@ -11,13 +11,13 @@ public class AutoReplyWithUserType extends AutoReply {
       entity = UserType.class,
       entityColumn = "user_type_id", parentColumn = "user_type_id"
   )
-  private AutoReply autoReply;
+  private UserType userType;
 
-  public AutoReply getAutoReply() {
-    return autoReply;
+  public UserType getUserType() {
+    return userType;
   }
 
-  public void setAutoReply(AutoReply autoReply) {
-    this.autoReply = autoReply;
+  public void setUserType(UserType userType) {
+    this.userType = userType;
   }
 }

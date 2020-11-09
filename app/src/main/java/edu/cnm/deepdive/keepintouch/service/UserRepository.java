@@ -37,17 +37,17 @@ public class UserRepository {
   }
 
 
-  LiveData<List<User>> getUserByUserType(long userTypeId) {
+  public LiveData<List<User>> getUserByUserType(long userTypeId) {
     return userDao.getUserByUserType(userTypeId);
   }
 
 
-  LiveData<User> getUserById(long userId) {
+  public LiveData<User> getUserById(long userId) {
     return userDao.getUserById(userId);
   }
 
 
-  Single<User> getUserByOauthKey(String oauthKey) {
+  public Single<User> getUserByOauthKey(String oauthKey) {
     return userDao.getUserByOauthKey(oauthKey);
   }
 

@@ -5,6 +5,7 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Transaction;
 import androidx.room.Update;
 import edu.cnm.deepdive.keepintouch.model.entity.AutoReply;
 import edu.cnm.deepdive.keepintouch.model.pojo.AutoReplyWithUserType;
@@ -43,9 +44,11 @@ public interface AutoReplyDao {
   Single<Integer> delete(Collection<AutoReply> autoReplies);
 
   //TODO update your query
+  @Transaction
   @Query("SELECT * FROM AutoReply WHERE `user_type_id` = :userTypeId ORDER BY message ASC")
   LiveData<List<AutoReplyWithUserType>> getAutoRepliesWithUserType(long userTypeId);
 
+  @Transaction
   @Query("SELECT ar.* FROM AutoReply AS ar INNER JOIN UserType AS ut ON ut.user_type_id = ar.user_type_id ORDER BY ut.name ASC, message ASC")
   LiveData<List<AutoReplyWithUserType>> getAllAutoReplies();
 

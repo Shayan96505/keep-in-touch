@@ -1,19 +1,20 @@
 package edu.cnm.deepdive.keepintouch.service;
 
 import android.content.Context;
+import androidx.lifecycle.LiveData;
 import edu.cnm.deepdive.keepintouch.model.dao.IgnoreStatusDao;
 import edu.cnm.deepdive.keepintouch.model.entity.IgnoreStatus;
 import io.reactivex.Completable;
+import java.util.List;
 
 public class IgnoreStatusRepository {
 
   private final Context context;
   private final IgnoreStatusDao ignoreStatusDao;
 
-  public IgnoreStatusRepository(Context context, IgnoreStatusDao ignoreStatusDao) {
+  public IgnoreStatusRepository(Context context) {
     this.context = context;
-    this.ignoreStatusDao = ignoreStatusDao;
-  ignoreStatusDao = KitDatabase.getInstance().getIgnoreStatusDao();
+    ignoreStatusDao = KitDatabase.getInstance().getIgnoreStatusDao();
   }
 
 
@@ -26,32 +27,32 @@ public class IgnoreStatusRepository {
             .ignoreElement();
   }
 
-  public Completable delete(IgnoreStatus ignoreStatus){
-    return (ignoreStatus.getIgnoreStatusId() == 0)?
+  public Completable delete(IgnoreStatus ignoreStatus) {
+    return (ignoreStatus.getIgnoreStatusId() == 0) ?
         Completable.complete()
         : ignoreStatusDao.delete(ignoreStatus)
             .ignoreElement();
   }
 
 
- // LiveData<IgnoreStatus> getIgnoreStatusForContact (String contactUri){
- //   return IgnoreStatusDao.getIgnoreStatusForContact(contactUri);
- // }
+  public LiveData<IgnoreStatus> getIgnoreStatusForContact(String contactUri) {
+    return ignoreStatusDao.getIgnoreStatusForContact(contactUri);
+  }
 
 
-  //LiveData<List<IgnoreStatus>> getMostIgnoredContacts (int numContacts){
-  //  return IgnoreStatusDao.getMostIgnoredContacts(numContacts);
-  //}
+  public LiveData<List<IgnoreStatus>> getMostIgnoredContacts(int numContacts) {
+    return ignoreStatusDao.getMostIgnoredContacts(numContacts);
+  }
 
 
-  //LiveData<List<IgnoreStatus>> getAllIgnoredContacts(int ignoreLimit){
-  //  return IgnoreStatusDao.getAllIgnoredContacts( ignoreLimit);
-  //}
+  public LiveData<List<IgnoreStatus>> getAllIgnoredContacts(int ignoreLimit) {
+    return ignoreStatusDao.getAllIgnoredContacts(ignoreLimit);
+  }
 
 
-  //LiveData<IgnoreStatus> getIgnoreStatus(long ignoreStatusId){
-  //  return IgnoreStatus.getIgnoreStatus(ignoreStatusId);
-  //}
+  public LiveData<IgnoreStatus> getIgnoreStatus(long ignoreStatusId) {
+    return ignoreStatusDao.getIgnoreStatus(ignoreStatusId);
+  }
 
 
 }
