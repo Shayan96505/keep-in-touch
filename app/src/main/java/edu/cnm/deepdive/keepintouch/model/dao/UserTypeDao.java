@@ -41,7 +41,6 @@ public interface UserTypeDao {
   @Delete
   Single<Integer> delete(Collection<UserType> userTypes);
 
-  //TODO Make another query
 
   @Query("SELECT * FROM UserType WHERE `user_type_id` = :userTypeId")
   LiveData<UserType> getUserType(long userTypeId);

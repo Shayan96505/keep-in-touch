@@ -33,7 +33,8 @@ public class UserTypeRepository {
             .ignoreElement();
   }
 
-
+//currently these are the only functional queries, no need to do queries for a list of more usertype
+  // may consider shifting this whole thing to an ENUM implementation after 2nd milestone....
   public LiveData<UserType> getUserType(long userTypeId) {
     return userTypeDao.getUserType(userTypeId);
   }

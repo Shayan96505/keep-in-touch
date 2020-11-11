@@ -41,7 +41,7 @@ public interface UserDao {
   @Delete
   Single<Integer> delete(Collection<User> users);
 
-  //TODO Make another query
+  //TODO
   // check to make sure this query is necessary, it's likely not
   @Query("SELECT * FROM  User WHERE `user_type_id` = :userTypeId")
   LiveData<List<User>> getUserByUserType(long userTypeId);
@@ -51,5 +51,10 @@ public interface UserDao {
 
   @Query("SELECT * FROM  User WHERE `oauth_key` = :oauthKey")
   Single<User> getUserByOauthKey(String oauthKey);
+
+  //not needed right? because currently only one user is signed in
+//  @Query("SELECT * FROM User")
+//  LiveData<List<User>> getAllUsers();
+
 
 }
