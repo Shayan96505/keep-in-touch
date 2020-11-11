@@ -1,5 +1,16 @@
 apply plugin: 'com.android.application'
 
+static def getProperty(String filename, String property) {
+
+    Properties properties = new Properties()
+    properties.load(new FileInputStream(filename))
+    return properties.getProperty(property)
+}
+
+static def quoted(String value) {
+    return "\"$value\""
+}
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
@@ -12,6 +23,16 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        def connection_properties = "$projectDir/../../../services/keepintouch.properties"
+        buildConfigField "String", "CLIENT_ID", quoted(
+                getProperty(connection_properties,"client_id"))
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ['room.schemaLocation': "$projectDir/schemas".toString()]
+            }
+        }
     }
 
     buildTypes {
@@ -33,14 +54,17 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
     implementation 'io.reactivex.rxjava2:rxjava:2.2.20'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
 
-    def room_version = '2.2.5'
+    //Google sign in dependency
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+
+    def room_version = "2.2.5"
     implementation "androidx.room:room-runtime:$room_version"
-    annotationProcessor "android.room:room-compiler:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-rxjava2:$room_version"
 
     def lifecycle_version = '2.2.0'

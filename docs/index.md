@@ -1,3 +1,5 @@
+##![Keep in Touch Logo](img/kitLogo.png)
+
 ## Project Description
 
 Keep in Touch is an app focused on helping young people who forget to respond to texts to **_keep in touch_**. Keep in Touch, also known as KiT, helps forgetful users and people that forget to nurture their relationships due to the busyness of modern life. KiT directly aids users that struggle with anxiety to make it past "texting small-talk" when exchanging numbers with a new connection by prolonging conversations and interactions, via seamless reminders to "keep in touch." If three days have passed since the last message, KiT nudges users to text back. Over time, these continual nudges in the right direction can blossom fresh friendships and nourish unlikely connections. Moreover, KiT also doubles as an app for forgetful family members so that they can simply _keep in touch_ with one another. Say goodbye to poor communication and say hello to actually checking in with one another. 

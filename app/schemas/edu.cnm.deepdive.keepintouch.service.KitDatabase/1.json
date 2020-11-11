@@ -1,0 +1,220 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "8128ab2b90ffb44aa3bee9885c132699",
+    "entities": [
+      {
+        "tableName": "AutoReply",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`auto_reply_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `message` TEXT, `user_type_id` INTEGER NOT NULL, FOREIGN KEY(`user_type_id`) REFERENCES `UserType`(`user_type_id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "fields": [
+          {
+            "fieldPath": "autoReplyId",
+            "columnName": "auto_reply_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "message",
+            "columnName": "message",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "userTypeId",
+            "columnName": "user_type_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "auto_reply_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_AutoReply_message",
+            "unique": true,
+            "columnNames": [
+              "message"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_AutoReply_message` ON `${TABLE_NAME}` (`message`)"
+          },
+          {
+            "name": "index_AutoReply_user_type_id",
+            "unique": true,
+            "columnNames": [
+              "user_type_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_AutoReply_user_type_id` ON `${TABLE_NAME}` (`user_type_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "UserType",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "user_type_id"
+            ],
+            "referencedColumns": [
+              "user_type_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "IgnoreStatus",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`ignore_status_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `contact_uri` TEXT, `count` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "ignoreStatusId",
+            "columnName": "ignore_status_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "contactUri",
+            "columnName": "contact_uri",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "count",
+            "columnName": "count",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "ignore_status_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_IgnoreStatus_contact_uri",
+            "unique": true,
+            "columnNames": [
+              "contact_uri"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_IgnoreStatus_contact_uri` ON `${TABLE_NAME}` (`contact_uri`)"
+          },
+          {
+            "name": "index_IgnoreStatus_count",
+            "unique": false,
+            "columnNames": [
+              "count"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_IgnoreStatus_count` ON `${TABLE_NAME}` (`count`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "User",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`user_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `oauth_key` TEXT, `user_type_id` INTEGER NOT NULL, FOREIGN KEY(`user_type_id`) REFERENCES `UserType`(`user_type_id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "user_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "oauthKey",
+            "columnName": "oauth_key",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "userTypeId",
+            "columnName": "user_type_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "user_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_User_oauth_key",
+            "unique": true,
+            "columnNames": [
+              "oauth_key"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_User_oauth_key` ON `${TABLE_NAME}` (`oauth_key`)"
+          },
+          {
+            "name": "index_User_user_type_id",
+            "unique": false,
+            "columnNames": [
+              "user_type_id"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_User_user_type_id` ON `${TABLE_NAME}` (`user_type_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "UserType",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "user_type_id"
+            ],
+            "referencedColumns": [
+              "user_type_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "UserType",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`user_type_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "userTypeId",
+            "columnName": "user_type_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "user_type_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_UserType_name",
+            "unique": true,
+            "columnNames": [
+              "name"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_UserType_name` ON `${TABLE_NAME}` (`name`)"
+          }
+        ],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8128ab2b90ffb44aa3bee9885c132699')"
+    ]
+  }
+}
