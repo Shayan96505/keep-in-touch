@@ -8,6 +8,10 @@ import io.reactivex.Completable;
 import io.reactivex.Single;
 import java.util.List;
 
+/**
+ * Currently not planning to use a query to getAll Users in this Repository back yet, because KiT
+ *  is currently limited to one user on the device, but I may implement the query in the near future.
+ */
 public class UserRepository {
 
 
