@@ -40,7 +40,7 @@ public class User {
   private String oauthKey;
 
   //This is a foreign key of user_type_ which will allow us to associate whether the user is a
-  // teen, millenial, college graduate, parent, or grandparent. In the long run, it will be used to
+  // teen, millennial, college graduate, parent, or grandparent. In the long run, it will be used to
   //determine the types of pre-recorded message selection a User will be able to choose from.
   @ColumnInfo(name = "user_type_id", index = true)
   private long userTypeId;
@@ -69,7 +69,4 @@ public class User {
     this.userTypeId = userTypeId;
   }
 
-  //TODO think about whether or not it would be useful to store a user's name as a String
-  //TODO think about where I want to put @Nonnull annotations and also about which getters and setter
-  // that I need
 }

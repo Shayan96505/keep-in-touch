@@ -30,6 +30,7 @@ public class AutoReply {
   private long autoReplyId;
 
 
+  // holds reply message
   @ColumnInfo(name = "message")
   private String message;
 

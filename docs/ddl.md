@@ -43,4 +43,6 @@
   
   CREATE UNIQUE INDEX IF NOT EXISTS `index_UserType_name` ON `UserType` (`name`);
 ```
-[Link to docs/sql/ddl.sql](sql/ddl.sql)
+[Link to project-level ddl.sql](sql/ddl.sql)
+
+[Link to github repository](https://github.com/Shayan96505/keep-in-touch/blob/master/docs/sql/ddl.sql)

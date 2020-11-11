@@ -1,4 +1,4 @@
-##![Keep in Touch Logo](img/kitLogo.png)
+![Keep in Touch Logo](img/kitLogo.png)
 
 ## Project Description
 
@@ -27,3 +27,17 @@ KiT accomplishes this by using text message metadata from inbound and outbound m
 ## [Wireframe](work/wireframe.md)
 
 ## [Entity-Relationship Diagram](work/entityRelationshipDiagram.md)
+
+## [Entity Classes](https://github.com/Shayan96505/keep-in-touch/tree/master/app/src/main/java/edu/cnm/deepdive/keepintouch/model/entity)
+
+##[DAO Interfaces](https://github.com/Shayan96505/keep-in-touch/tree/master/app/src/main/java/edu/cnm/deepdive/keepintouch/model/dao)
+
+##[Kit Database](https://github.com/Shayan96505/keep-in-touch/blob/master/app/src/main/java/edu/cnm/deepdive/keepintouch/service/KitDatabase.java)
+
+##[Repositories](https://github.com/Shayan96505/keep-in-touch/tree/master/app/src/main/java/edu/cnm/deepdive/keepintouch/service)
+
+##[DDL](ddl.md)
+
+
+
+
