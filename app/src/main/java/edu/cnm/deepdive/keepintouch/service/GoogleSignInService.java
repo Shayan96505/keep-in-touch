@@ -22,7 +22,6 @@ public class GoogleSignInService {
 
   //this constructor is used to help us get the info of the user from google
   private GoogleSignInService() {
-
     GoogleSignInOptions options = new GoogleSignInOptions.Builder()
         .requestEmail()
         .requestId()
@@ -53,7 +52,7 @@ public class GoogleSignInService {
         .addOnSuccessListener(this::setAccount);
   }
 
-  public void startSignin(Activity activity, int requestCode) {
+  public void startSignIn(Activity activity, int requestCode) {
     account = null;
     Intent intent = client.getSignInIntent();
     activity.startActivityForResult(intent, requestCode);
@@ -81,7 +80,7 @@ public class GoogleSignInService {
     this.account = account;
     if (account != null) {
       //noinspection ConstantConditions
-      Log.d(getClass().getSimpleName(), account.getIdToken());
+      //Log.d(getClass().getSimpleName(), account.getIdToken());
     }
   }
 

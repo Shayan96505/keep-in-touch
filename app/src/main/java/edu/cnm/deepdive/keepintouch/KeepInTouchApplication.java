@@ -13,8 +13,6 @@ public class KeepInTouchApplication extends Application {
   public void onCreate() {
     super.onCreate();
     Stetho.initializeWithDefaults(this);
-
-    //haven't ported over the google sign in yet.
     GoogleSignInService.setContext(this);
     KitDatabase.setContext(this);
 

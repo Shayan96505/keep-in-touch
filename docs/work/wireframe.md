@@ -1,2 +1,2 @@
 #### Keep in Touch Android App Layout
-[![Wireframe diagram](../img/wireframe.png)](../pdf/kitWireframe.pdf "Redirect to Wireframe as PDF")
+[![Wireframe diagram](../img/updatedKitWireframe.png)](../pdf/updatedKitWireframe.pdf "Redirect to Wireframe as PDF")

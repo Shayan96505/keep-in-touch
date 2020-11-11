@@ -24,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
         .addOnFailureListener((throwable) -> {
 
           binding = ActivityLoginBinding.inflate(getLayoutInflater());
-          binding.signIn.setOnClickListener((v) -> service.startSignin(this, LOGIN_REQUEST_CODE));
+          binding.signIn.setOnClickListener((v) -> service.startSignIn(this, LOGIN_REQUEST_CODE));
           setContentView(binding.getRoot());
         });
   }
