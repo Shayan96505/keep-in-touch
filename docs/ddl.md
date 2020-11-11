@@ -43,3 +43,4 @@
   
   CREATE UNIQUE INDEX IF NOT EXISTS `index_UserType_name` ON `UserType` (`name`);
 ```
+[Link to docs/sql/ddl.sql](sql/ddl.sql)
