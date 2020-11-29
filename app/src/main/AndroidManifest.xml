@@ -13,7 +13,7 @@
     android:theme="@style/AppTheme"
     tools:ignore="AllowBackup">
     <activity
-      android:label="@string/title_activity_main2"
+      android:label="@string/title_activity_main"
       android:name=".controller.NavigationActivity">
     </activity>
     <activity android:name=".controller.LoginActivity">
@@ -22,8 +22,6 @@
 
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
-    </activity>
-    <activity android:name=".controller.MainActivity">
     </activity>
   </application>
 
