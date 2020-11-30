@@ -52,9 +52,11 @@ public interface AutoReplyDao {
   @Query("SELECT ar.* FROM AutoReply AS ar INNER JOIN UserType AS ut ON ut.user_type_id = ar.user_type_id ORDER BY ut.name ASC, message ASC")
   LiveData<List<AutoReplyWithUserType>> getAllAutoReplies();
 
+  // added these transaction queries to diagnose with todd
+  //TODO
+
   @Transaction
   @Query("SELECT * FROM AutoReply ORDER BY message ASC")
   LiveData<List<AutoReplyWithUserType>> selectAllAutoReplies();
-
 
 }
