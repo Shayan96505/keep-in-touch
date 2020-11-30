@@ -16,7 +16,6 @@ import edu.cnm.deepdive.keepintouch.model.entity.AutoReply;
 import edu.cnm.deepdive.keepintouch.model.entity.IgnoreStatus;
 import edu.cnm.deepdive.keepintouch.model.entity.User;
 import edu.cnm.deepdive.keepintouch.model.entity.UserType;
-import io.reactivex.Single;
 import io.reactivex.schedulers.Schedulers;
 import java.io.IOException;
 import java.io.InputStream;
@@ -78,30 +77,32 @@ public abstract class KitDatabase extends RoomDatabase {
       }
     }
 
-   private Map<UserType, List<AutoReply>> parseFile(int resourceId) throws IOException {
-      try(
+    private Map<UserType, List<AutoReply>> parseFile(int resourceId) throws IOException {
+      try (
           InputStream input = KitDatabase.context.getResources().openRawResource(resourceId);
           Reader reader = new InputStreamReader(input);
-          CSVParser parser = CSVParser.parse(reader, CSVFormat.EXCEL.withIgnoreSurroundingSpaces().withIgnoreEmptyLines());
-          ) {
-          Map<UserType, List<AutoReply>> map = new HashMap<>();
-          for (CSVRecord record: parser){
-            UserType userType = null;
-            String sourceUserType = record.get(0).trim();
-            if (!sourceUserType.isEmpty()){
-              userType = new UserType();
-              userType.setName(sourceUserType);
-            }
-            List<AutoReply> autoReplies = map.computeIfAbsent(userType, (ar) -> new LinkedList<>());
-            AutoReply autoReply = new AutoReply();
-            autoReply.setMessage(record.get(1).trim());
-            autoReplies.add(autoReply);
+          CSVParser parser = CSVParser
+              .parse(reader, CSVFormat.EXCEL.withIgnoreSurroundingSpaces().withIgnoreEmptyLines());
+      ) {
+        Map<UserType, List<AutoReply>> map = new HashMap<>();
+        for (CSVRecord record : parser) {
+          UserType userType = null;
+          String sourceUserType = record.get(0).trim();
+          if (!sourceUserType.isEmpty()) {
+            userType = new UserType();
+            userType.setName(sourceUserType);
           }
-          return map;
+          List<AutoReply> autoReplies = map.computeIfAbsent(userType, (ar) -> new LinkedList<>());
+          AutoReply autoReply = new AutoReply();
+          autoReply.setMessage(record.get(1).trim());
+          autoReplies.add(autoReply);
+        }
+        return map;
       }
-   }
-   @SuppressLint("CheckResult")
-   private void persist(Map<UserType, List<AutoReply>> map){
+    }
+
+    @SuppressLint("CheckResult")
+    private void persist(Map<UserType, List<AutoReply>> map) {
       KitDatabase database = KitDatabase.getInstance();
       UserTypeDao userTypeDao = database.getUserTypeDao();
       AutoReplyDao autoReplyDao = database.getAutoReplyDao();
@@ -110,11 +111,12 @@ public abstract class KitDatabase extends RoomDatabase {
           .subscribeOn(Schedulers.io())
           .flatMap((userTypeIds) -> {
             List<AutoReply> autoReplies = new LinkedList<>();
-            Iterator<Long> idIterator =  userTypeIds.iterator();
+            Iterator<Long> idIterator = userTypeIds.iterator();
             Iterator<UserType> userTypeIterator = userTypes.iterator();
-            while (idIterator.hasNext()){
+            while (idIterator.hasNext()) {
               long userTypeId = idIterator.next();
-              for (AutoReply autoReply:map.getOrDefault(userTypeIterator.next(), Collections.emptyList())){
+              for (AutoReply autoReply : map
+                  .getOrDefault(userTypeIterator.next(), Collections.emptyList())) {
                 autoReply.setUserTypeId(userTypeId);
                 autoReplies.add(autoReply);
               }
@@ -122,10 +124,13 @@ public abstract class KitDatabase extends RoomDatabase {
             return autoReplyDao.insert(autoReplies);
           })
           .subscribe(
-              (autoReplyIds) -> {},
-              (throwable) -> {throw new RuntimeException(throwable);}
+              (autoReplyIds) -> {
+              },
+              (throwable) -> {
+                throw new RuntimeException(throwable);
+              }
           );
-   }
+    }
   }
 
 
