@@ -1,5 +1,6 @@
 package edu.cnm.deepdive.keepintouch.service;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.room.Database;
@@ -16,11 +17,14 @@ import edu.cnm.deepdive.keepintouch.model.entity.IgnoreStatus;
 import edu.cnm.deepdive.keepintouch.model.entity.User;
 import edu.cnm.deepdive.keepintouch.model.entity.UserType;
 import io.reactivex.Single;
+import io.reactivex.schedulers.Schedulers;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -57,8 +61,8 @@ public abstract class KitDatabase extends RoomDatabase {
 
     private static final KitDatabase INSTANCE =
         Room.databaseBuilder(context, KitDatabase.class, DB_NAME)
+            .addCallback(new AutoReplyCallback())
             .build();
-
   }
 
   private static class AutoReplyCallback extends Callback {
@@ -94,6 +98,32 @@ public abstract class KitDatabase extends RoomDatabase {
           }
           return map;
       }
+   }
+   @SuppressLint("CheckResult")
+   private void persist(Map<UserType, List<AutoReply>> map){
+      KitDatabase database = KitDatabase.getInstance();
+      UserTypeDao userTypeDao = database.getUserTypeDao();
+      AutoReplyDao autoReplyDao = database.getAutoReplyDao();
+      List<UserType> userTypes = new LinkedList<>(map.keySet());
+      userTypeDao.insert(userTypes)
+          .subscribeOn(Schedulers.io())
+          .flatMap((userTypeIds) -> {
+            List<AutoReply> autoReplies = new LinkedList<>();
+            Iterator<Long> idIterator =  userTypeIds.iterator();
+            Iterator<UserType> userTypeIterator = userTypes.iterator();
+            while (idIterator.hasNext()){
+              long userTypeId = idIterator.next();
+              for (AutoReply autoReply:map.getOrDefault(userTypeIterator.next(), Collections.emptyList())){
+                autoReply.setUserTypeId(userTypeId);
+                autoReplies.add(autoReply);
+              }
+            }
+            return autoReplyDao.insert(autoReplies);
+          })
+          .subscribe(
+              (autoReplyIds) -> {},
+              (throwable) -> {throw new RuntimeException(throwable);}
+          );
    }
   }
 
