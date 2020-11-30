@@ -5,8 +5,10 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Transaction;
 import androidx.room.Update;
 import edu.cnm.deepdive.keepintouch.model.entity.UserType;
+import edu.cnm.deepdive.keepintouch.model.pojo.UserTypeWithAutoReply;
 import io.reactivex.Single;
 import java.util.Collection;
 import java.util.List;
@@ -48,5 +50,15 @@ public interface UserTypeDao {
   @Query("SELECT * FROM UserType WHERE `name` = :name")
   LiveData<UserType> getUserTypeByName(String name);
 
+  // added these transaction queries to diagnose with todd
+  //TODO
+
+  @Transaction
+  @Query("SELECT * FROM UserType WHERE `user_type_id` = :userTypeId")
+  Single<UserTypeWithAutoReply> selectById(long userTypeId);
+
+  @Transaction
+  @Query("SELECT * FROM UserType ORDER BY name")
+  Single<UserTypeWithAutoReply> selectAllWithAutoReplies();
 
 }

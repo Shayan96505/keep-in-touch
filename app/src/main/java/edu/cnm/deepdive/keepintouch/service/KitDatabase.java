@@ -72,6 +72,7 @@ public abstract class KitDatabase extends RoomDatabase {
       super.onCreate(db);
       try {
         Map<UserType, List<AutoReply>> map = parseFile(R.raw.autoreply);
+        persist(map);
       } catch (IOException e) {
         throw new RuntimeException(e);
       }
