@@ -15,10 +15,7 @@ import edu.cnm.deepdive.keepintouch.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
 
-  private FragmentHomeBinding binding;
-
   private HomeViewModel homeViewModel;
-
 
 // the stock code that came  with the fragment
   public View onCreateView(@NonNull LayoutInflater inflater,
@@ -36,16 +33,4 @@ public class HomeFragment extends Fragment {
     return root;
   }
 
-  @Override
-  public void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    Bundle args = getArguments();
-    // Do whatever necessary with args
-  }
-
-  @Override
-  public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-    super.onViewCreated(view, savedInstanceState);
-    //Get references to a ViewModel instance, set observers on LiveData
-  }
 }

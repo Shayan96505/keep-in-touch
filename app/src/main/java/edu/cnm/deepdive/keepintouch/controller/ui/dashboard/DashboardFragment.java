@@ -11,8 +11,12 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import edu.cnm.deepdive.keepintouch.R;
+import edu.cnm.deepdive.keepintouch.databinding.FragmentDashboardBinding;
+import edu.cnm.deepdive.keepintouch.databinding.FragmentHomeBinding;
 
 public class DashboardFragment extends Fragment {
+
+  private FragmentDashboardBinding binding;
 
   private DashboardViewModel dashboardViewModel;
 
@@ -29,5 +33,18 @@ public class DashboardFragment extends Fragment {
       }
     });
     return root;
+  }
+
+  @Override
+  public void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    Bundle args = getArguments();
+    // Do whatever necessary with args
+  }
+
+  @Override
+  public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    super.onViewCreated(view, savedInstanceState);
+    //Get references to a ViewModel instance, set observers on LiveData
   }
 }
