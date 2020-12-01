@@ -1,4 +1,3 @@
--- noinspection SqlNoDataSourceInspectionForFile
 CREATE TABLE IF NOT EXISTS `AutoReply`
 (
     `auto_reply_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
