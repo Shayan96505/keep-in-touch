@@ -2,10 +2,14 @@ package edu.cnm.deepdive.keepintouch.service;
 
 import android.content.Context;
 import androidx.lifecycle.LiveData;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import edu.cnm.deepdive.keepintouch.model.dao.UserDao;
 import edu.cnm.deepdive.keepintouch.model.entity.User;
 import io.reactivex.Completable;
 import io.reactivex.Single;
+import io.reactivex.SingleObserver;
+import io.reactivex.SingleSource;
+import io.reactivex.schedulers.Schedulers;
 import java.util.List;
 
 /**
@@ -51,8 +55,20 @@ public class UserRepository {
   }
 
 
-  public Single<User> getUserByOauthKey(String oauthKey) {
-    return userDao.getUserByOauthKey(oauthKey);
+  public Single<User> getOrCreate(String oauthKey) {
+    return userDao.getUserByOauthKey(oauthKey)
+        .switchIfEmpty((SingleSource<User>) (observer) -> {
+          User user = new User();
+          user.setOauthKey(oauthKey);
+          user.setUserTypeId(4); //FIXME replace with a query for the userType;
+          userDao.insert(user)
+              .map((id) -> {
+                user.setId(id);
+                return user;
+              })
+              .subscribe(observer);
+        })
+        .subscribeOn(Schedulers.io());
   }
 
 

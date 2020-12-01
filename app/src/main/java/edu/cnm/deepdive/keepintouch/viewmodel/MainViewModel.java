@@ -6,14 +6,18 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Transformations;
 import edu.cnm.deepdive.keepintouch.model.dto.Message;
 import edu.cnm.deepdive.keepintouch.model.entity.AutoReply;
+import edu.cnm.deepdive.keepintouch.model.entity.User;
 import edu.cnm.deepdive.keepintouch.model.pojo.AutoReplyWithUserType;
 import edu.cnm.deepdive.keepintouch.service.AutoReplyRepository;
+import edu.cnm.deepdive.keepintouch.service.GoogleSignInService;
 import edu.cnm.deepdive.keepintouch.service.IgnoreStatusRepository;
 import edu.cnm.deepdive.keepintouch.service.SmsRepository;
 import edu.cnm.deepdive.keepintouch.service.UserRepository;
 import edu.cnm.deepdive.keepintouch.service.UserTypeRepository;
+import io.reactivex.Single;
 import io.reactivex.disposables.CompositeDisposable;
 import java.util.List;
 
@@ -25,8 +29,11 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
   private final UserTypeRepository userTypeRepository;
   private final SmsRepository smsRepository;
   private final MutableLiveData<List<Message>> messages;
+  private final MutableLiveData<User> user;
+  private final LiveData<List<AutoReplyWithUserType>> autoReplies;
   private final MutableLiveData<Throwable> throwable;
   private final CompositeDisposable pending;
+
 
   public MainViewModel(
       @NonNull Application application) {
@@ -37,13 +44,16 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
     userTypeRepository = new UserTypeRepository(application);
     smsRepository = new SmsRepository(application);
     messages = new MutableLiveData<>();
+    user = new MutableLiveData<>();
+    autoReplies = Transformations.switchMap(user, (u) -> autoReplyRepository.getAutoRepliesByUserType(u.getUserTypeId()));
     throwable = new MutableLiveData<>();
     pending = new CompositeDisposable();
+    getCurrentUser();
     refreshMessages();
   }
 
   public LiveData<List<AutoReplyWithUserType>> getAutoReplies() {
-    return autoReplyRepository.getAllAutoReplies();
+    return autoReplies;
   }
 
   public void refreshMessages() {
@@ -62,5 +72,17 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
 
   public LiveData<Throwable> getThrowable() {
     return throwable;
+  }
+
+  private void getCurrentUser() {
+    throwable.setValue(null);
+    String oauthKey = GoogleSignInService.getInstance().getAccount().getId();
+    pending.add(
+        userRepository.getOrCreate(oauthKey)
+            .subscribe(
+                user::postValue,
+                throwable::postValue
+            )
+    );
   }
 }

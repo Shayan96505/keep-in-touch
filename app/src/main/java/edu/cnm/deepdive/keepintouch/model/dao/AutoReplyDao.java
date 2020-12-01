@@ -44,7 +44,8 @@ public interface AutoReplyDao {
   Single<Integer> delete(Collection<AutoReply> autoReplies);
 
 
-  //added a single instance query
+  //added a single instance query as per milestone 2 rubric
+  //not actually functional for the implementation of my app.
   @Query("SELECT * FROM  AutoReply WHERE `auto_reply_id` = :autoReplyId")
   Single<AutoReply> getAutoReplyById(long autoReplyId);
 

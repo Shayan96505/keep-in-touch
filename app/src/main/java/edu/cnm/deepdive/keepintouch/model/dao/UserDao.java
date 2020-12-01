@@ -7,6 +7,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 import edu.cnm.deepdive.keepintouch.model.entity.User;
+import io.reactivex.Maybe;
 import io.reactivex.Single;
 import java.util.Collection;
 import java.util.List;
@@ -50,7 +51,7 @@ public interface UserDao {
   LiveData<User> getUserById(long userId);
 
   @Query("SELECT * FROM  User WHERE `oauth_key` = :oauthKey")
-  Single<User> getUserByOauthKey(String oauthKey);
+  Maybe<User> getUserByOauthKey(String oauthKey);
 
   //not needed right? because currently only one user is signed in
 //  @Query("SELECT * FROM User")
