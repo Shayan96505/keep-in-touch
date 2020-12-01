@@ -44,6 +44,10 @@ public interface AutoReplyDao {
   Single<Integer> delete(Collection<AutoReply> autoReplies);
 
 
+  //added a single instance query
+  @Query("SELECT * FROM  AutoReply WHERE `auto_reply_id` = :autoReplyId")
+  Single<AutoReply> getAutoReplyById(long autoReplyId);
+
   @Transaction
   @Query("SELECT * FROM AutoReply WHERE `user_type_id` = :userTypeId ORDER BY message ASC")
   LiveData<List<AutoReplyWithUserType>> getAutoRepliesWithUserType(long userTypeId);

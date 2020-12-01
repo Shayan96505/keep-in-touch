@@ -26,6 +26,8 @@ have offered similar functionality, but there's no app that reminds different us
 * Different KiT themes
     > Customize the feel of your KiT experience with a Dark Theme, Light Theme, Cat Theme, or Dog Theme.
 
+## [Current State of KiT](work/currentState.md)
+
 ## [Intended Users](work/intendedUsers.md)
 
 ## [Cloud or device-based services & data](work/deviceServices.md)
