@@ -28,6 +28,8 @@ have offered similar functionality, but there's no app that reminds different us
 
 ## [Current State of KiT](work/currentState.md)
 
+## [Technical requirements and dependencies](work/technicalDependencies.md)
+
 ## [Intended Users](work/intendedUsers.md)
 
 ## [Cloud or device-based services & data](work/deviceServices.md)
