@@ -52,5 +52,12 @@ have offered similar functionality, but there's no app that reminds different us
 
 ## [Basic user instructions](work/userInstructions.md)
 
+## Credits
+
+_Keep In Touch_ was written by Shayan Golafshani, with Nick Bennet and Todd Nordquist.
+
+&copy; 2020 Shayan Golafshani. All rights reserved.
+
+
 
 

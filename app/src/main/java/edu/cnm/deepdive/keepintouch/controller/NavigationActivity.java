@@ -72,6 +72,7 @@ public class NavigationActivity extends AppCompatActivity {
           }
         } else {
           //TODO keep track that we have this permission.
+          //viewModel.grantPermission(permission);
         }
       }
       if (!permissionsToExplain.isEmpty()) {
