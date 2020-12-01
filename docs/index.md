@@ -48,6 +48,9 @@ have offered similar functionality, but there's no app that reminds different us
 
 ## [DDL](ddl.md)
 
+## [Build instructions](work/buildInstructions.md)
+
+## [Basic user instructions](work/userInstructions.md)
 
 
 
