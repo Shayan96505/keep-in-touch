@@ -4,7 +4,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -13,7 +17,9 @@ import androidx.lifecycle.ViewModelProviders;
 import edu.cnm.deepdive.keepintouch.R;
 import edu.cnm.deepdive.keepintouch.databinding.FragmentHomeBinding;
 
-public class HomeFragment extends Fragment {
+//implements AdapterView.OnItemSelectedListener
+
+public class HomeFragment extends Fragment  {
 
   private HomeViewModel homeViewModel;
 
@@ -33,4 +39,25 @@ public class HomeFragment extends Fragment {
     return root;
   }
 
+  //TODO Fix Spinner
+//  String[] users = { "Teen", "Millennial", "Parent", "Grandparent" };
+//  @Override
+//  protected void onCreate(Bundle savedInstanceState) {
+//    super.onCreate(savedInstanceState);
+//    setContentView(R.layout.fragment_home);
+//    Spinner spin = (Spinner) findViewById(R.id.select_user_type);
+//    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, users);
+//    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//    spin.setAdapter(adapter);
+//    spin.setOnItemSelectedListener(this);
+//  }
+//
+//  @Override
+//  public void onItemSelected(AdapterView<?> arg0, View arg1, int position,long id) {
+//    Toast.makeText(getApplicationContext(), "Selected User: "+ users[position] ,Toast.LENGTH_SHORT).show();
+//  }
+//  @Override
+//  public void onNothingSelected(AdapterView<?> arg0) {
+//    // TODO - Custom Code
+//  }
 }

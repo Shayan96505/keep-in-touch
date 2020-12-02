@@ -25,7 +25,7 @@
     android:layout_marginTop="8dp"
     android:layout_marginStart="8dp"
     android:layout_marginEnd="8dp"
-    android:drawableTop="@drawable/common_full_open_on_phone"
+    android:drawableTop="@drawable/ic_twotone_person_24"
     android:textAlignment="center"
     android:textSize="20sp"
     app:layout_constraintBottom_toBottomOf="parent"
@@ -44,6 +44,7 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintBottom_toBottomOf="@id/text_home"
     android:layout_gravity="end|center_vertical"
-    android:paddingVertical="20dp"/>
+    android:paddingVertical="20dp"
+    />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,25 +14,28 @@
     android:layout_marginTop="8dp"
     android:layout_marginStart="8dp"
     android:layout_marginEnd="8dp"
+    android:background="@color/sunset_orange"
+    android:text="Nudgin' you... Send a message to:"
     android:textAlignment="center"
-    android:textSize="20sp"
-    app:layout_constraintBottom_toBottomOf="parent"
+    android:textColor="@color/colorPrimaryDark"
+    android:textSize="25dp"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"/>
+    app:layout_constraintTop_toTopOf="parent"
+    />
 
   <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/show_auto_replies"
     android:layout_width="match_parent"
     android:layout_height="0dp"
-    android:orientation="vertical"
-    android:background="@color/colorAccent"
     android:padding="@dimen/half_static_spacing"
+    android:background="@color/colorAccent"
+    android:orientation="vertical"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-    app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/text_dashboard"
     />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

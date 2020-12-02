@@ -7,6 +7,8 @@
     <item name="colorAccent">@color/colorAccent</item>
   </style>
 
+  <color name="sunset_orange"> #FD5E53</color>
+  
   <string name="permissions_title">Permissions</string>
 
 </resources>
