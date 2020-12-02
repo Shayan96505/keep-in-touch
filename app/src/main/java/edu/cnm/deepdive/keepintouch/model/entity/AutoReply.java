@@ -7,6 +7,9 @@ import androidx.room.ForeignKey;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
+/**
+ * An entity class for autoReply objects stored inside the KitDatabase
+ */
 @Entity(
     indices = {
         @Index(value = "message", unique = true),

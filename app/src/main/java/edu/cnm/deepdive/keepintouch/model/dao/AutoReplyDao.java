@@ -13,6 +13,10 @@ import io.reactivex.Single;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * An AutoReplyDao which allows us to insert, delete, update and do specific queries on the
+ * AutoReply entities.
+ */
 @Dao
 public interface AutoReplyDao {
 

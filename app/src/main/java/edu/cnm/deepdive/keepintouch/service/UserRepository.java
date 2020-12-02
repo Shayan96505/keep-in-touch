@@ -2,12 +2,10 @@ package edu.cnm.deepdive.keepintouch.service;
 
 import android.content.Context;
 import androidx.lifecycle.LiveData;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import edu.cnm.deepdive.keepintouch.model.dao.UserDao;
 import edu.cnm.deepdive.keepintouch.model.entity.User;
 import io.reactivex.Completable;
 import io.reactivex.Single;
-import io.reactivex.SingleObserver;
 import io.reactivex.SingleSource;
 import io.reactivex.schedulers.Schedulers;
 import java.util.List;

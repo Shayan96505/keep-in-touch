@@ -11,6 +11,10 @@ import edu.cnm.deepdive.keepintouch.databinding.ActivityLoginBinding;
 import edu.cnm.deepdive.keepintouch.service.GoogleSignInService;
 import edu.cnm.deepdive.keepintouch.service.UserRepository;
 
+/**
+ * This is the activity in which the Google Sign In logging in takes place. It extends {@linkplain AppCompatActivity}.
+ *  All together this class allows us to Login with Google Oauth 2.0.
+ */
 public class LoginActivity extends AppCompatActivity {
 
   private static final int LOGIN_REQUEST_CODE = 1000;

@@ -12,6 +12,10 @@ import io.reactivex.Single;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * A UserDao which allows us to insert, delete, update and do specific queries on the
+ * User entities.
+ */
 @Dao
 public interface UserDao {
 
@@ -42,8 +46,7 @@ public interface UserDao {
   @Delete
   Single<Integer> delete(Collection<User> users);
 
-  //TODO
-  // check to make sure this query is necessary, it's likely not
+
   @Query("SELECT * FROM  User WHERE `user_type_id` = :userTypeId")
   LiveData<List<User>> getUserByUserType(long userTypeId);
 
@@ -52,10 +55,5 @@ public interface UserDao {
 
   @Query("SELECT * FROM  User WHERE `oauth_key` = :oauthKey")
   Maybe<User> getUserByOauthKey(String oauthKey);
-
-  //not needed right? because currently only one user is signed in
-//  @Query("SELECT * FROM User")
-//  LiveData<List<User>> getAllUsers();
-
 
 }

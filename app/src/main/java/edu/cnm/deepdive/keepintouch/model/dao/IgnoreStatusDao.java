@@ -7,11 +7,14 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 import edu.cnm.deepdive.keepintouch.model.entity.IgnoreStatus;
-import edu.cnm.deepdive.keepintouch.model.entity.User;
 import io.reactivex.Single;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * An IgnoreStatusDao which allows us to insert, delete, update and do specific queries on the
+ * IgnoreStatus entities.
+ */
 @Dao
 public interface IgnoreStatusDao {
 

@@ -14,10 +14,14 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import edu.cnm.deepdive.keepintouch.R;
-import edu.cnm.deepdive.keepintouch.service.SmsRepository;
+import edu.cnm.deepdive.keepintouch.viewmodel.MainViewModel;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * This is the {@linkplain NavigationActivity} that allows the user to navigate between fragments
+ * with the bottom button navigation style.
+ */
 public class NavigationActivity extends AppCompatActivity {
 
   private static final int PERMISSIONS_REQUEST_CODE = 30;
@@ -38,6 +42,7 @@ public class NavigationActivity extends AppCompatActivity {
     checkPermissions();
   }
 
+  //here we check to see what the result of asking for permissions was
   @Override
   public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
       @NonNull int[] grantResults) {
@@ -55,6 +60,9 @@ public class NavigationActivity extends AppCompatActivity {
     super.onRequestPermissionsResult(requestCode, permissions, grantResults);
   }
 
+  //here we check if a permission is not granted then we have to go ahead and ask for it.
+  // In the code here we basically check to see if we have the permission. If not then we have to
+  // go ahead and explain why we are asking for permissions, to persuade the user to give permission to us.
   private void checkPermissions() {
     try {
       PackageInfo info = getPackageManager()
@@ -85,6 +93,10 @@ public class NavigationActivity extends AppCompatActivity {
     }
   }
 
+  /**
+   * A helper method that allows us to acknowledge which permissions we need.
+   * @param permissionsToRequest is a string array of which permissions we need to request.
+   */
   public void onAcknowledge(String[] permissionsToRequest) {
     ActivityCompat.requestPermissions(this, permissionsToRequest, PERMISSIONS_REQUEST_CODE);
   }

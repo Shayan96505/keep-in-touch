@@ -13,6 +13,10 @@ import io.reactivex.Single;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * An UserTypeDao which allows us to insert, delete, update and do specific queries on the
+ * userType entities.
+ */
 @Dao
 public interface UserTypeDao {
 
@@ -51,7 +55,7 @@ public interface UserTypeDao {
   LiveData<UserType> getUserTypeByName(String name);
 
   // added these transaction queries to diagnose with todd
-  //TODO
+  // FixME check these additional queries and the 2nd pojo class.
 
   @Transaction
   @Query("SELECT * FROM UserType WHERE `user_type_id` = :userTypeId")

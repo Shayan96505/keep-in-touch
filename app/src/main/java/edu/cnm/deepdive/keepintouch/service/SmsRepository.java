@@ -4,10 +4,8 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
-import android.provider.ContactsContract;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.provider.ContactsContract.Contacts;
-import android.provider.Telephony;
 import android.provider.Telephony.Sms.Inbox;
 import androidx.annotation.NonNull;
 import edu.cnm.deepdive.keepintouch.model.dto.Contact;
@@ -84,12 +82,14 @@ public class SmsRepository {
             }
           } while (cursor.moveToNext());
         }
-        return  messages;
+        return messages;
       }
     })
         .map((messages) -> messages.stream()
             .map((message) -> {
-              message.setContact(getContact(Uri.withAppendedPath(Contacts.CONTENT_URI, message.getContactId()).buildUpon().build()));
+              message.setContact(getContact(
+                  Uri.withAppendedPath(Contacts.CONTENT_URI, message.getContactId()).buildUpon()
+                      .build()));
               return message;
             })
             .collect(Collectors.toList())
