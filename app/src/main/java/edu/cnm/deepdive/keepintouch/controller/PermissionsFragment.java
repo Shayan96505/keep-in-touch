@@ -24,6 +24,12 @@ public class PermissionsFragment extends DialogFragment {
   private static final String EXPLANATION_KEY_SUFFIX = "_explanation";
   private static final String PERMISSION_DELIMITER = "\\.";
 
+  /**
+   * A method that creates and an instances of the Permissions Fragment.
+   * @param permissionsToExplain , a String[] of permissions to explain to the user.
+   * @param permissionsToRequest a String[] of permissions to request from the user.
+   * @return the permissions fragment.
+   */
   @NonNull
   public static PermissionsFragment createInstance(@NonNull String[] permissionsToExplain,
       String[] permissionsToRequest) {
