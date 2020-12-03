@@ -31,6 +31,9 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 
+/**
+ * A Database class that keeps track of AutoReplies, Ignore Status of a contact, Users, and their User Type.
+ */
 @Database(entities = {AutoReply.class, IgnoreStatus.class, User.class, UserType.class},
     version = 1,
     exportSchema = true)
@@ -40,14 +43,26 @@ public abstract class KitDatabase extends RoomDatabase {
 
   private static Application context;
 
+  /**
+   * Constructor for the database.
+   * @param context , an application object which provides the context
+   */
   public static void setContext(Application context) {
     KitDatabase.context = context;
   }
 
+  /**
+   * Constructor that gets us the instance of the Database.
+   *
+   */
   public static KitDatabase getInstance() {
     return InstanceHolder.INSTANCE;
   }
 
+  /**
+   *  utilizing the
+   * @return
+   */
   public abstract AutoReplyDao getAutoReplyDao();
 
   public abstract UserDao getUserDao();

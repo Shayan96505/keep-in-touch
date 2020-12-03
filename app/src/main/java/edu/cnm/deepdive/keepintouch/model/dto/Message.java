@@ -4,7 +4,7 @@ import java.util.Date;
 
 /**
  * A Dto, which allows us to store the information we get from the incoming messages in the phone to fields
- * we can use such as {@link #body}, {@link #sent}, {@link #contactId}, {@link #contact}, and {@link #address}.
+ * we can use such as {@link #body}, {@link #sent}, {@link #contact}, and {@link #address}.
  * We can access these fields with getters and setters.
  */
 public class Message {
@@ -12,8 +12,6 @@ public class Message {
   private String body;
 
   private Date sent;
-
-  private  String contactId;
 
   private Contact contact;
 
@@ -49,22 +47,6 @@ public class Message {
    */
   public void setSent(Date sent) {
     this.sent = sent;
-  }
-
-  /**
-   * Gets the contactId.
-   * @return a String, represents the contactId of the Contact who sent the message
-   */
-  public String getContactId() {
-    return contactId;
-  }
-
-  /**
-   * Sets the contactId for a message.
-   * @param contactId a String, represents the contactId of the Contact who sent the message
-   */
-  public void setContactId(String contactId) {
-    this.contactId = contactId;
   }
 
   /**

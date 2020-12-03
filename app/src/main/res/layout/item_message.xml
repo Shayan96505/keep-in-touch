@@ -14,7 +14,7 @@
     android:layout_height="wrap_content">
 
 
-      <!-- Eventually I'd like to add an aimage view that holds the contact's picture in here.
+      <!-- Eventually I'd like to add an image view that holds the contact's picture in here.
      <ImageView
         tools:tooltipText="This is an image"
         android:layout_width="20dp"
@@ -39,10 +39,9 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_margin="@dimen/half_margin"
-      android:paddingLeft="@dimen/half_margin"
-      style="@style/TextAppearance.AppCompat.Large"
+      style="@style/TextAppearance.AppCompat.Caption"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintStart_toEndOf="@id/contact"
+      app:layout_constraintEnd_toEndOf="parent"
       tools:text="Date and Time"
       />
 
@@ -59,11 +58,20 @@
 
     <Spinner
       android:id="@+id/auto_replies"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:layout_margin="@dimen/half_margin"
       app:layout_constraintTop_toBottomOf="@id/message"
+      app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+      android:id="@+id/send"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:layout_constraintTop_toBottomOf="@id/auto_replies"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:text="@string/send"/>
 
 
   </androidx.constraintlayout.widget.ConstraintLayout>

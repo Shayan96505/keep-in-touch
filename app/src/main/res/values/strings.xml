@@ -10,4 +10,5 @@
   <string name="no">No!</string>
   <string name="greeting">Welcome to KiT \n Please select your user type.</string>
   <string name="nudge">Nudgin\' you… Send a message to:</string>
+  <string name="send">Send it!</string>
 </resources>

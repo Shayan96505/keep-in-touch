@@ -13,7 +13,7 @@ import edu.cnm.deepdive.keepintouch.adapter.MessageAdapter.Holder;
 import edu.cnm.deepdive.keepintouch.databinding.ItemMessageBinding;
 import edu.cnm.deepdive.keepintouch.model.dto.Message;
 import edu.cnm.deepdive.keepintouch.model.entity.AutoReply;
-import java.text.NumberFormat;
+import java.text.DateFormat;
 import java.util.List;
 
 /**
@@ -27,7 +27,9 @@ public class MessageAdapter extends RecyclerView.Adapter<Holder> {
   private final LayoutInflater inflater;
   private final List<Message> messages;
   private final List<? extends AutoReply> autoReplies;
-  private final OnAutoReplySelectedListener listener;
+  private final OnSendClickListener listener;
+  private final DateFormat dateFormatter;
+  private final DateFormat timeFormatter;
 
   /**
    * Constructor for the messaging RecyclerView
@@ -38,12 +40,14 @@ public class MessageAdapter extends RecyclerView.Adapter<Holder> {
    */
   public MessageAdapter(Context context, List<Message> messages,
       List<? extends AutoReply> autoReplies,
-      OnAutoReplySelectedListener listener) {
+      OnSendClickListener listener) {
     this.context = context;
     inflater = LayoutInflater.from(context);
     this.messages = messages;
     this.autoReplies = autoReplies;
     this.listener = listener;
+    dateFormatter = android.text.format.DateFormat.getMediumDateFormat(context);
+    timeFormatter = android.text.format.DateFormat.getTimeFormat(context);
   }
 
   //this creates a new view holder when there are no existing view holders which the RecyclerView can reuse.
@@ -73,7 +77,7 @@ public class MessageAdapter extends RecyclerView.Adapter<Holder> {
    * this class Holds and binds the layouts of what we will displaying in the RecyclerView we're
    * implementing. It extends the ViewHolder class.
    */
-  class Holder extends RecyclerView.ViewHolder implements OnItemSelectedListener {
+  class Holder extends RecyclerView.ViewHolder {
 
     private final ItemMessageBinding binding;
     private Message message;
@@ -84,29 +88,29 @@ public class MessageAdapter extends RecyclerView.Adapter<Holder> {
       ArrayAdapter<? extends AutoReply> adapter = new ArrayAdapter<>(context,
           android.R.layout.simple_dropdown_item_1line, autoReplies);
       binding.autoReplies.setAdapter(adapter);
-      binding.autoReplies.setOnItemSelectedListener(this);
     }
 
     private void bind(int position) {
       message = messages.get(position);
-      binding.contact.setText(message.getContact().getDisplayName());
+      if(message.getContact() != null && message.getContact().getDisplayName() != null) {
+        binding.contact.setText(message.getContact().getDisplayName());
+      } else {
+        binding.contact.setText(message.getAddress());
+      }
       binding.message.setText(message.getBody());
-      binding.date.setText(String.valueOf(message.getSent()));
+      String date = dateFormatter.format(message.getSent());
+      String time = timeFormatter.format(message.getSent());
+      binding.date.setText(date + " " + time);
+      binding.send.setOnClickListener((v) ->
+          listener.onClick(message, (AutoReply) binding.autoReplies.getSelectedItem()));
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-      AutoReply autoReply = (AutoReply) parent.getItemAtPosition(position);
-      listener.onSelect(message, autoReply);
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
   }
 
-  public interface OnAutoReplySelectedListener {
-    void onSelect(Message message, AutoReply autoReply);
+  public interface OnSendClickListener {
+    void onClick(Message message, AutoReply autoReply);
   }
+
+
+
 }

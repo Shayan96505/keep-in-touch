@@ -3,9 +3,11 @@ package edu.cnm.deepdive.keepintouch.viewmodel;
 import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.Lifecycle.Event;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.OnLifecycleEvent;
 import androidx.lifecycle.Transformations;
 import edu.cnm.deepdive.keepintouch.model.dto.Message;
 import edu.cnm.deepdive.keepintouch.model.entity.AutoReply;
@@ -22,8 +24,8 @@ import io.reactivex.disposables.CompositeDisposable;
 import java.util.List;
 
 /**
- * This is the MainViewModel class which extends {@link AndroidViewModel} and implements
- *  {@link LifecycleObserver}.
+ * This is the MainViewModel class which extends {@link AndroidViewModel} and implements {@link
+ * LifecycleObserver}.
  */
 public class MainViewModel extends AndroidViewModel implements LifecycleObserver {
 
@@ -41,6 +43,7 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
 
   /**
    * Constructor for the MainViewModel
+   *
    * @param application takes in an application object
    */
   public MainViewModel(
@@ -53,7 +56,8 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
     smsRepository = new SmsRepository(application);
     messages = new MutableLiveData<>();
     user = new MutableLiveData<>();
-    autoReplies = Transformations.switchMap(user, (u) -> autoReplyRepository.getAutoRepliesByUserType(u.getUserTypeId()));
+    autoReplies = Transformations
+        .switchMap(user, (u) -> autoReplyRepository.getAutoRepliesByUserType(u.getUserTypeId()));
     throwable = new MutableLiveData<>();
     pending = new CompositeDisposable();
     getCurrentUser();
@@ -62,6 +66,7 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
 
   /**
    * A query to get access to all the
+   *
    * @return a LiveData,
    */
   public LiveData<List<AutoReplyWithUserType>> getAutoReplies() {
@@ -83,6 +88,7 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
 
   /**
    * Gets a LiveData list of messages
+   *
    * @return a LiveData list, of messages.
    */
   public LiveData<List<Message>> getMessages() {
@@ -91,10 +97,21 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
 
   /**
    * Gets a throwable for us.
+   *
    * @return a LiveData, of throwable
    */
   public LiveData<Throwable> getThrowable() {
     return throwable;
+  }
+
+  public void sendMessage(String phoneNumber, String text) {
+    pending.add(
+        smsRepository.sendMessage(phoneNumber, text)
+            .subscribe(
+                () -> {},
+                throwable::postValue
+            )
+    );
   }
 
   private void getCurrentUser() {
@@ -107,5 +124,10 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
                 throwable::postValue
             )
     );
+  }
+
+  @OnLifecycleEvent(Event.ON_STOP)
+  private void clearPending(){
+    pending.clear();
   }
 }

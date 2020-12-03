@@ -48,6 +48,7 @@ public class MessagesFragment extends Fragment {
     //Get references to a ViewModel instance, set observers on LiveData
     viewModel =
         new ViewModelProvider(this).get(MainViewModel.class);
+    getLifecycle().addObserver(viewModel);
     viewModel.getMessages().observe(getViewLifecycleOwner(), (messages) -> {
       this.messages = messages;
       populateRecyclerView();
@@ -66,9 +67,10 @@ public class MessagesFragment extends Fragment {
 
   private void populateRecyclerView () {
     if (messages != null && autoReplies != null) {
-      MessageAdapter adapter = new MessageAdapter(getContext(), messages, autoReplies, (message, autoReply) ->
-          Log.d(getClass().getSimpleName(), String.format("%s selected for %s", autoReply, message.getBody())));
+      MessageAdapter adapter = new MessageAdapter(getContext(), messages, autoReplies,
+          (message, autoReply) -> viewModel.sendMessage(message.getAddress(), autoReply.getMessage()));
       binding.messages.setAdapter(adapter);
+      binding.waitingIndicator.setVisibility(View.GONE);
     }
   }
 }
