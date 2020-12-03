@@ -1,4 +1,3 @@
--- noinspection SqlNoDataSourceInspectionForFile
 CREATE TABLE IF NOT EXISTS `AutoReply`
 (
     `auto_reply_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
@@ -9,7 +8,7 @@ CREATE TABLE IF NOT EXISTS `AutoReply`
 
 CREATE UNIQUE INDEX IF NOT EXISTS `index_AutoReply_message` ON `AutoReply` (`message`);
 
-CREATE UNIQUE INDEX IF NOT EXISTS `index_AutoReply_user_type_id` ON `AutoReply` (`user_type_id`);
+CREATE INDEX IF NOT EXISTS `index_AutoReply_user_type_id` ON `AutoReply` (`user_type_id`);
 
 CREATE TABLE IF NOT EXISTS `IgnoreStatus`
 (

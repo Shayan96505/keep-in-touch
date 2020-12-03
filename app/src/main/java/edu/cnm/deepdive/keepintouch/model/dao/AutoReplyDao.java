@@ -13,6 +13,10 @@ import io.reactivex.Single;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * An AutoReplyDao which allows us to insert, delete, update and do specific queries on the
+ * AutoReply entities.
+ */
 @Dao
 public interface AutoReplyDao {
 
@@ -44,6 +48,11 @@ public interface AutoReplyDao {
   Single<Integer> delete(Collection<AutoReply> autoReplies);
 
 
+  //added a single instance query as per milestone 2 rubric
+  //not actually functional for the implementation of my app.
+  @Query("SELECT * FROM  AutoReply WHERE `auto_reply_id` = :autoReplyId")
+  Single<AutoReply> getAutoReplyById(long autoReplyId);
+
   @Transaction
   @Query("SELECT * FROM AutoReply WHERE `user_type_id` = :userTypeId ORDER BY message ASC")
   LiveData<List<AutoReplyWithUserType>> getAutoRepliesWithUserType(long userTypeId);
@@ -52,5 +61,11 @@ public interface AutoReplyDao {
   @Query("SELECT ar.* FROM AutoReply AS ar INNER JOIN UserType AS ut ON ut.user_type_id = ar.user_type_id ORDER BY ut.name ASC, message ASC")
   LiveData<List<AutoReplyWithUserType>> getAllAutoReplies();
 
+  // added these transaction queries to diagnose with todd
+  //TODO
+
+  @Transaction
+  @Query("SELECT * FROM AutoReply ORDER BY message ASC")
+  LiveData<List<AutoReplyWithUserType>> selectAllAutoReplies();
 
 }

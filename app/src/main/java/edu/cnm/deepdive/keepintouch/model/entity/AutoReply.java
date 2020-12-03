@@ -7,10 +7,13 @@ import androidx.room.ForeignKey;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
+/**
+ * An entity class for autoReply objects stored inside the KitDatabase
+ */
 @Entity(
     indices = {
         @Index(value = "message", unique = true),
-        @Index(value = "user_type_id", unique = true)
+        @Index(value = "user_type_id")
     },
 
     foreignKeys = {
@@ -62,5 +65,11 @@ public class AutoReply {
 
   public void setUserTypeId(long userTypeId) {
     this.userTypeId = userTypeId;
+  }
+
+  @NonNull
+  @Override
+  public String toString() {
+    return message;
   }
 }

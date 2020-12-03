@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "8128ab2b90ffb44aa3bee9885c132699",
+    "identityHash": "7d10141a859cacc9597b5cefa6237c94",
     "entities": [
       {
         "tableName": "AutoReply",
@@ -44,11 +44,11 @@
           },
           {
             "name": "index_AutoReply_user_type_id",
-            "unique": true,
+            "unique": false,
             "columnNames": [
               "user_type_id"
             ],
-            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_AutoReply_user_type_id` ON `${TABLE_NAME}` (`user_type_id`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_AutoReply_user_type_id` ON `${TABLE_NAME}` (`user_type_id`)"
           }
         ],
         "foreignKeys": [
@@ -214,7 +214,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8128ab2b90ffb44aa3bee9885c132699')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '7d10141a859cacc9597b5cefa6237c94')"
     ]
   }
 }

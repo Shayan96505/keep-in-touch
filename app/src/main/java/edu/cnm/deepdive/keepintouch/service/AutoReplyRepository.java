@@ -27,20 +27,20 @@ public class AutoReplyRepository {
             .ignoreElement();
   }
 
-    public Completable delete(AutoReply autoReply){
-      return (autoReply.getAutoReplyId() == 0)?
-          Completable.complete()
-          : autoReplyDao.delete(autoReply)
-          .ignoreElement();
-    }
-
-    public LiveData<List<AutoReplyWithUserType>> getAutoRepliesByUserType(long userTypeId){
-      return autoReplyDao.getAutoRepliesWithUserType(userTypeId);
-   }
-
-   public LiveData<List<AutoReplyWithUserType>> getAllAutoReplies(){
-    return  autoReplyDao.getAllAutoReplies();
-   }
-
+  public Completable delete(AutoReply autoReply) {
+    return (autoReply.getAutoReplyId() == 0) ?
+        Completable.complete()
+        : autoReplyDao.delete(autoReply)
+            .ignoreElement();
   }
+
+  public LiveData<List<AutoReplyWithUserType>> getAutoRepliesByUserType(long userTypeId) {
+    return autoReplyDao.getAutoRepliesWithUserType(userTypeId);
+  }
+
+  public LiveData<List<AutoReplyWithUserType>> getAllAutoReplies() {
+    return autoReplyDao.getAllAutoReplies();
+  }
+
+}
 

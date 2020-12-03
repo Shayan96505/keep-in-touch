@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: "androidx.navigation.safeargs"
 
 static def getProperty(String filename, String property) {
 
@@ -9,6 +10,12 @@ static def getProperty(String filename, String property) {
 
 static def quoted(String value) {
     return "\"$value\""
+}
+
+ext {
+    appName = 'Keep In Touch'
+    appNameSlug = 'keep-in-touch'
+    baseUrl = 'https://shayan-golafshani.github.io'
 }
 
 android {
@@ -61,6 +68,11 @@ dependencies {
 
     //Google sign in dependency
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.navigation:navigation-fragment:2.3.1'
+    implementation 'androidx.navigation:navigation-ui:2.3.1'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     def room_version = "2.2.5"
     implementation "androidx.room:room-runtime:$room_version"
@@ -75,8 +87,41 @@ dependencies {
 
     implementation 'com.facebook.stetho:stetho:1.5.1'
 
+    //importing apache commons CSV to parse in messages as autoreplies
+    implementation 'org.apache.commons:commons-csv:1.8'
+
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+}
+
+android.applicationVariants.all { variant ->
+    task("generate${variant.name.capitalize()}Javadoc", type: Javadoc) {
+        def docTitle = "${appName} ${project.android.defaultConfig.versionName}"
+        def compileTask = variant.javaCompileProvider.get()
+        def androidLibJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
+        title docTitle
+        description "Generates Javadoc for $variant.name."
+        source = compileTask.source
+        destinationDir = file("${projectDir}/../docs/api")
+        doFirst {
+            classpath = files(compileTask.classpath.files) + files(androidLibJar)
+        }
+        options {
+            links 'https://docs.oracle.com/javase/8/docs/api/'
+            links 'http://reactivex.io/RxJava/javadoc/'
+            links 'https://javadoc.io/doc/io.reactivex.rxjava2/rxandroid/latest/'
+            links 'https://javadoc.io/doc/com.google.code.gson/gson/latest/'
+            links 'https://square.github.io/retrofit/2.x/retrofit/'
+            links 'https://square.github.io/okhttp/3.x/okhttp/'
+            links 'https://square.github.io/okhttp/3.x/logging-interceptor/'
+            links 'https://square.github.io/picasso/2.x/picasso/'
+            links 'https://javadoc.io/doc/com.facebook.stetho/stetho/latest/'
+            links 'https://commons.apache.org/proper/commons-csv/apidocs/'
+            linksOffline 'https://developer.android.com/reference', "${projectDir}/../link-offline/android"
+            linksOffline 'https://developers.google.com/android/reference', "${projectDir}/../link-offline/google"
+            windowTitle docTitle
+        }
+    }
 }
