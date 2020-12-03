@@ -8,4 +8,5 @@
   <string name="title_notifications">Notifications</string>
   <string name="yes">Yes!</string>
   <string name="no">No!</string>
+  <string name="greeting">Welcome to KiT \n Please select your user type.</string>
 </resources>

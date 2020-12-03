@@ -21,6 +21,10 @@ import io.reactivex.Single;
 import io.reactivex.disposables.CompositeDisposable;
 import java.util.List;
 
+/**
+ * This is the MainViewModel class which extends {@link AndroidViewModel} and implements
+ *  {@link LifecycleObserver}.
+ */
 public class MainViewModel extends AndroidViewModel implements LifecycleObserver {
 
   private final AutoReplyRepository autoReplyRepository;
@@ -35,6 +39,10 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
   private final CompositeDisposable pending;
 
 
+  /**
+   * Constructor for the MainViewModel
+   * @param application takes in an application object
+   */
   public MainViewModel(
       @NonNull Application application) {
     super(application);
@@ -52,10 +60,17 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
     refreshMessages();
   }
 
+  /**
+   * A query to get access to all the
+   * @return a LiveData,
+   */
   public LiveData<List<AutoReplyWithUserType>> getAutoReplies() {
     return autoReplies;
   }
 
+  /**
+   * refreshes the incoming messages.
+   */
   public void refreshMessages() {
     pending.add(
         smsRepository.getMessages()
@@ -66,10 +81,18 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
     );
   }
 
+  /**
+   * Gets a LiveData list of messages
+   * @return a LiveData list, of messages.
+   */
   public LiveData<List<Message>> getMessages() {
     return messages;
   }
 
+  /**
+   * Gets a throwable for us.
+   * @return a LiveData, of throwable
+   */
   public LiveData<Throwable> getThrowable() {
     return throwable;
   }

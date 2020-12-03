@@ -63,6 +63,6 @@ public interface UserTypeDao {
 
   @Transaction
   @Query("SELECT * FROM UserType ORDER BY name")
-  Single<UserTypeWithAutoReply> selectAllWithAutoReplies();
+  LiveData<List<UserTypeWithAutoReply>> selectAllWithAutoReplies();
 
 }

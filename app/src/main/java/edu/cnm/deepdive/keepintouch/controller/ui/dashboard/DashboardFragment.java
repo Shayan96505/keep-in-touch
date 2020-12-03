@@ -14,6 +14,9 @@ import edu.cnm.deepdive.keepintouch.adapter.AutoReplyAdapter;
 import edu.cnm.deepdive.keepintouch.databinding.FragmentDashboardBinding;
 import edu.cnm.deepdive.keepintouch.viewmodel.MainViewModel;
 
+/**
+ * A fragment that houses the messages and contact info of the user's contacts
+ */
 public class DashboardFragment extends Fragment {
 
   private FragmentDashboardBinding binding;
@@ -39,6 +42,13 @@ public class DashboardFragment extends Fragment {
     }
   }
 
+  /**
+   * Creates a view and binds this fragment to it.
+   * @param inflater , an inflater object
+   * @param container , a container object
+   * @param savedInstanceState , a saved Instance state.
+   * @return a View
+   */
   public View onCreateView(@NonNull LayoutInflater inflater,
       ViewGroup container, Bundle savedInstanceState) {
     binding = FragmentDashboardBinding.inflate(inflater);

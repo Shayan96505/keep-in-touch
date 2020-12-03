@@ -21,11 +21,20 @@ public class UserRepository {
   private final UserDao userDao;
 
 
+  /**
+   * A constructor for the User Repository class.
+   * @param context , a context object necessary for the repository.
+   */
   public UserRepository(Context context) {
     this.context = context;
     userDao = KitDatabase.getInstance().getUserDao();
   }
 
+  /**
+   * A completable method that either adds the User to the database, and
+   * @param user , a user object
+   *
+   */
   public Completable save(User user) {
     return (user.getId() == 0)
         ? userDao.insert(user).
@@ -35,6 +44,11 @@ public class UserRepository {
             .ignoreElement();
   }
 
+  /**
+   * A completable method that deletes the user record from the database
+   * @param user , a user object
+   *
+   */
   public Completable delete(User user) {
     return (user.getId() == 0) ?
         Completable.complete()
@@ -43,16 +57,30 @@ public class UserRepository {
   }
 
 
+  /**
+   * Return a LiveData list of type User
+   * @param userTypeId takes a long associated with a UserType.
+   * @return a LiveData of type User
+   */
   public LiveData<List<User>> getUserByUserType(long userTypeId) {
     return userDao.getUserByUserType(userTypeId);
   }
 
-
+  /**
+   * A repository method that gets the User by User Id.
+   * @param userId takes a long parameter in as a userId.
+   * @return a LiveData of type User
+   */
   public LiveData<User> getUserById(long userId) {
     return userDao.getUserById(userId);
   }
 
 
+  /**
+   * A method that either gets a user or creates one.
+   * @param oauthKey is the oauthKey associated with the user's Google Oauth account that is signed in
+   * @return a Single of User type
+   */
   public Single<User> getOrCreate(String oauthKey) {
     return userDao.getUserByOauthKey(oauthKey)
         .switchIfEmpty((SingleSource<User>) (observer) -> {

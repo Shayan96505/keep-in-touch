@@ -1,9 +1,12 @@
 package edu.cnm.deepdive.keepintouch.controller;
 
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -19,6 +22,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import edu.cnm.deepdive.keepintouch.R;
+import edu.cnm.deepdive.keepintouch.service.GoogleSignInService;
 import edu.cnm.deepdive.keepintouch.viewmodel.MainViewModel;
 import java.util.LinkedList;
 import java.util.List;
@@ -104,6 +108,43 @@ public class NavigationActivity extends AppCompatActivity {
    */
   public void onAcknowledge(String[] permissionsToRequest) {
     ActivityCompat.requestPermissions(this, permissionsToRequest, PERMISSIONS_REQUEST_CODE);
+  }
+
+
+  @Override
+  public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    boolean handled = true;
+    //noinspection SwitchStatementWithTooFewBranches
+    switch (item.getItemId()) {
+      case R.id.sign_out:
+        logout();
+        break;
+      default:
+        handled = super.onOptionsItemSelected(item);
+    }
+    return handled;
+  }
+  @Override
+  public boolean onCreateOptionsMenu(Menu menu) {
+    // Inflate the menu; this adds items to the action bar if it is present.
+    getMenuInflater().inflate(R.menu.navigation, menu);
+    return true;
+  }
+  @Override
+  public boolean onSupportNavigateUp() {
+    onBackPressed();
+    return true;
+  }
+  /**
+   * This method is the logic behind the logout function.
+   */
+  private void logout() {
+    GoogleSignInService.getInstance().signOut()
+        .addOnCompleteListener((ignored) -> {
+          Intent intent = new Intent(this, LoginActivity.class)
+              .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+          startActivity(intent);
+        });
   }
 
 }
