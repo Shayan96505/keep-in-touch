@@ -13,6 +13,7 @@ public class Contact {
 
   /**
    * This returns the phone number of the contact
+   *
    * @return string, phone number.
    */
   public String getPhoneNumber() {
@@ -21,6 +22,7 @@ public class Contact {
 
   /**
    * This sets the phone number of a contact.
+   *
    * @param phoneNumber this is a parameter, phone number.
    */
   public void setPhoneNumber(String phoneNumber) {
@@ -29,6 +31,7 @@ public class Contact {
 
   /**
    * This returns the display name of a contact so we can display it.
+   *
    * @return the Contact's display name.
    */
   public String getDisplayName() {
@@ -37,6 +40,7 @@ public class Contact {
 
   /**
    * Setter that allows us to change the display name of a contact, necessary
+   *
    * @param displayName a parameter, contact's display name.
    */
   public void setDisplayName(String displayName) {

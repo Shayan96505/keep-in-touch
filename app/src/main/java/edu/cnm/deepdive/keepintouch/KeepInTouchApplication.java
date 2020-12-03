@@ -11,12 +11,16 @@ import io.reactivex.schedulers.Schedulers;
  */
 public class KeepInTouchApplication extends Application {
 
-// Leave this all the way through the 3rd personal android application milestone
+  // Leave this all the way through the 3rd personal android application milestone
   @Override
   public void onCreate() {
     super.onCreate();
+
     //TODO remove stetho, before publishing the app
+    //for inspecting the DB with edge
     Stetho.initializeWithDefaults(this);
+
+    //to sign in with google
     GoogleSignInService.setContext(this);
     KitDatabase.setContext(this);
 

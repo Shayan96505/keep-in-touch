@@ -10,7 +10,6 @@ import android.provider.ContactsContract.Contacts;
 import android.provider.Telephony.Sms.Inbox;
 import android.provider.Telephony.TextBasedSmsColumns;
 import android.telephony.SmsManager;
-import androidx.annotation.NonNull;
 import edu.cnm.deepdive.keepintouch.model.dto.Contact;
 import edu.cnm.deepdive.keepintouch.model.dto.Message;
 import io.reactivex.Completable;
@@ -19,10 +18,10 @@ import io.reactivex.schedulers.Schedulers;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
- * A repository for my DTOs of Contacts and Messages....
+ * A repository for my DTOs of Contacts and Messages.... contains methods to get contacts, messages,
+ * and can even send messages.
  */
 public class SmsRepository {
 
@@ -43,6 +42,7 @@ public class SmsRepository {
 
   /**
    * A constructor for this Sms Repository
+   *
    * @param context , a context object
    */
   public SmsRepository(Context context) {
@@ -52,8 +52,9 @@ public class SmsRepository {
   }
 
   /**
-   *  A method to get a Contact and the associated information
-   * @param contentUri , takes ina  contentUri object, which is a reference to the specific contact
+   * A method to get a Contact and the associated information
+   *
+   * @param contentUri , takes in a contentUri object, which is a reference to the specific contact
    * @return , return a Contact or fail.
    */
   public Single<Contact> getContactInfo(Uri contentUri) {
@@ -80,9 +81,8 @@ public class SmsRepository {
   }
 
   /**
-   *
-   * @return a List of Message objects, with the body, the address (phone number), person, and date... etc.
-   *
+   * @return a List of Message objects, with the body, the address (phone number), person, and
+   * date... etc. It utilizes a do-while loop to go through all the messages a User has.
    */
   public Single<List<Message>> getMessages() {
     return Single.fromCallable(() -> {
@@ -108,7 +108,7 @@ public class SmsRepository {
                   Uri.withAppendedPath(Contacts.CONTENT_URI, personId).buildUpon()
                       .build()));
             }
-              messages.add(message);
+            messages.add(message);
           } while (cursor.moveToNext());
         }
         return messages;
@@ -117,7 +117,15 @@ public class SmsRepository {
         .subscribeOn(Schedulers.io());
   }
 
-  // sending an SMS of a kit
+  // sending an SMS of a keep in touch message
+
+  /**
+   * Uses an smsManager object to send a text, running on a background thread.
+   *
+   * @param phoneNumber , string of the phone number that the message will be sent to
+   * @param text        the body of the message
+   * @return nothing, task completes or doesn't
+   */
   public Completable sendMessage(String phoneNumber, String text) {
     return Completable.fromAction(() -> {
       smsManager.sendTextMessage(phoneNumber, null, text, null, null);

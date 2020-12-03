@@ -2,10 +2,7 @@ package edu.cnm.deepdive.keepintouch.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,9 +14,9 @@ import java.text.DateFormat;
 import java.util.List;
 
 /**
- * This is an adapter for the recyclerView that contains both the late messages from contacts
- * and the autoReplies that they can send back to the their contacts. It contains basic info
- * like contact name, the message, and date received.
+ * This is an adapter for the recyclerView that contains both the late messages from contacts and
+ * the autoReplies that they can send back to the their contacts. It contains basic info like
+ * contact name, the message, and date received.
  */
 public class MessageAdapter extends RecyclerView.Adapter<Holder> {
 
@@ -33,8 +30,9 @@ public class MessageAdapter extends RecyclerView.Adapter<Holder> {
 
   /**
    * Constructor for the messaging RecyclerView
-   * @param context is the context of the this activity
-   * @param messages a list of autoReplies prepopulated into the database with a CSV file parser
+   *
+   * @param context     is the context of the this activity
+   * @param messages    a list of autoReplies prepopulated into the database with a CSV file parser
    * @param autoReplies
    * @param listener
    */
@@ -92,7 +90,7 @@ public class MessageAdapter extends RecyclerView.Adapter<Holder> {
 
     private void bind(int position) {
       message = messages.get(position);
-      if(message.getContact() != null && message.getContact().getDisplayName() != null) {
+      if (message.getContact() != null && message.getContact().getDisplayName() != null) {
         binding.contact.setText(message.getContact().getDisplayName());
       } else {
         binding.contact.setText(message.getAddress());
@@ -107,10 +105,14 @@ public class MessageAdapter extends RecyclerView.Adapter<Holder> {
 
   }
 
+  /**
+   * An interface that listens for when the Send It button is clicked and an autoReply is selected
+   * from the associated spinner.
+   */
   public interface OnSendClickListener {
+
     void onClick(Message message, AutoReply autoReply);
   }
-
 
 
 }

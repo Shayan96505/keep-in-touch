@@ -10,7 +10,6 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.lifecycle.Transformations;
 import edu.cnm.deepdive.keepintouch.model.dto.Message;
-import edu.cnm.deepdive.keepintouch.model.entity.AutoReply;
 import edu.cnm.deepdive.keepintouch.model.entity.User;
 import edu.cnm.deepdive.keepintouch.model.pojo.AutoReplyWithUserType;
 import edu.cnm.deepdive.keepintouch.service.AutoReplyRepository;
@@ -19,7 +18,6 @@ import edu.cnm.deepdive.keepintouch.service.IgnoreStatusRepository;
 import edu.cnm.deepdive.keepintouch.service.SmsRepository;
 import edu.cnm.deepdive.keepintouch.service.UserRepository;
 import edu.cnm.deepdive.keepintouch.service.UserTypeRepository;
-import io.reactivex.Single;
 import io.reactivex.disposables.CompositeDisposable;
 import java.util.List;
 
@@ -65,16 +63,16 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
   }
 
   /**
-   * A query to get access to all the
+   * A query to get access to all the AutoReplies of a certain userType.
    *
-   * @return a LiveData,
+   * @return a LiveData List of AutoReplies.
    */
   public LiveData<List<AutoReplyWithUserType>> getAutoReplies() {
     return autoReplies;
   }
 
   /**
-   * refreshes the incoming messages.
+   * refreshes the incoming messages, or throws a throwable.
    */
   public void refreshMessages() {
     pending.add(
@@ -96,19 +94,27 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
   }
 
   /**
-   * Gets a throwable for us.
+   * Gets a LiveData of type, Throwable for us.
    *
-   * @return a LiveData, of throwable
+   * @return a LiveData, of Throwable
    */
   public LiveData<Throwable> getThrowable() {
     return throwable;
   }
 
+  /**
+   * This is a method  to send a text message out, it utilizes the same method in the
+   * smsRepository.
+   *
+   * @param phoneNumber ,  a String that contains the phone number the text will be sent to.
+   * @param text        , a String that containts the body of the text that is being sent.
+   */
   public void sendMessage(String phoneNumber, String text) {
     pending.add(
         smsRepository.sendMessage(phoneNumber, text)
             .subscribe(
-                () -> {},
+                () -> {
+                },
                 throwable::postValue
             )
     );
@@ -127,7 +133,7 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
   }
 
   @OnLifecycleEvent(Event.ON_STOP)
-  private void clearPending(){
+  private void clearPending() {
     pending.clear();
   }
 }

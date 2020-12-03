@@ -11,8 +11,8 @@ import io.reactivex.schedulers.Schedulers;
 import java.util.List;
 
 /**
- * Currently not planning to use a query to getAll Users in this Repository back yet, because KiT
- *  is currently limited to one user on the device, but I may implement the query in the near future.
+ * Currently not planning to use a query to getAll Users in this Repository back yet, because KiT is
+ * currently limited to one user on the device, but I may implement the query in the near future.
  */
 public class UserRepository {
 
@@ -23,6 +23,7 @@ public class UserRepository {
 
   /**
    * A constructor for the User Repository class.
+   *
    * @param context , a context object necessary for the repository.
    */
   public UserRepository(Context context) {
@@ -32,8 +33,8 @@ public class UserRepository {
 
   /**
    * A completable method that either adds the User to the database, and
-   * @param user , a user object
    *
+   * @param user , a user object
    */
   public Completable save(User user) {
     return (user.getId() == 0)
@@ -46,8 +47,8 @@ public class UserRepository {
 
   /**
    * A completable method that deletes the user record from the database
-   * @param user , a user object
    *
+   * @param user , a user object
    */
   public Completable delete(User user) {
     return (user.getId() == 0) ?
@@ -59,6 +60,7 @@ public class UserRepository {
 
   /**
    * Return a LiveData list of type User
+   *
    * @param userTypeId takes a long associated with a UserType.
    * @return a LiveData of type User
    */
@@ -68,6 +70,7 @@ public class UserRepository {
 
   /**
    * A repository method that gets the User by User Id.
+   *
    * @param userId takes a long parameter in as a userId.
    * @return a LiveData of type User
    */
@@ -77,8 +80,10 @@ public class UserRepository {
 
 
   /**
-   * A method that either gets a user or creates one.
-   * @param oauthKey is the oauthKey associated with the user's Google Oauth account that is signed in
+   * A method that either gets a User or creates one.
+   *
+   * @param oauthKey is the oauthKey associated with the user's Google Oauth account that is signed
+   *                 in
    * @return a Single of User type
    */
   public Single<User> getOrCreate(String oauthKey) {
@@ -86,7 +91,7 @@ public class UserRepository {
         .switchIfEmpty((SingleSource<User>) (observer) -> {
           User user = new User();
           user.setOauthKey(oauthKey);
-          user.setUserTypeId(4); //FIXME replace with a query for the userType;
+          user.setUserTypeId(4);
           userDao.insert(user)
               .map((id) -> {
                 user.setId(id);

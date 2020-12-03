@@ -19,6 +19,7 @@ public class UserTypeRepository {
 
   /**
    * Constructor for the userType Repository.
+   *
    * @param context , takes in a Context object
    */
   public UserTypeRepository(Context context) {
@@ -28,6 +29,7 @@ public class UserTypeRepository {
 
   /**
    * Either insert a userType into the DB, or update the userType
+   *
    * @param userType , an object of type UserType
    * @return a completable
    */
@@ -41,7 +43,8 @@ public class UserTypeRepository {
   }
 
   /**
-   * Allows us to delete the userType
+   * Allows us to delete the userType.
+   *
    * @param userType , an object of type UserType
    * @return a completable
    */
@@ -54,7 +57,8 @@ public class UserTypeRepository {
 
 
   /**
-   * A method to get the UserTypeId
+   * A method to get the UserTypeId.
+   *
    * @param userTypeId , the long id associated with a userType
    * @return a LiveData of UserType.
    */
@@ -63,7 +67,8 @@ public class UserTypeRepository {
   }
 
   /**
-   * A method to get the userType by name
+   * A method to get the userType by name.
+   *
    * @param name , the name of the UserType. Ie, grandparent, millennial, parent, grandparent.
    * @return a LiveData of UserType.
    */
@@ -72,11 +77,12 @@ public class UserTypeRepository {
   }
 
   /**
-   *  A method to get the
+   * A method to get all the autoReplies of a certain userType.
+   *
    * @return a LiveData of UserType.
    */
   public LiveData<List<UserTypeWithAutoReply>> getAll() {
-    return  userTypeDao.selectAllWithAutoReplies();
+    return userTypeDao.selectAllWithAutoReplies();
   }
 
 }
