@@ -19,9 +19,7 @@ import java.util.stream.Collectors;
 
 public class SmsRepository {
 
-  private static final String[] contactProjection = {
-      Phone.NUMBER, Phone.DISPLAY_NAME
-  };
+  private static final String[] contactProjection = {Phone.DISPLAY_NAME};
 
   //TODO Please find these constants in android and replace them!
   private static final String[] messageProjection = {
@@ -47,12 +45,15 @@ public class SmsRepository {
         Cursor cursor =
             resolver.query(contentUri, contactProjection, null, null, null)
     ) {
-      cursor.moveToFirst();
-      int phoneNumberIndex = cursor.getColumnIndex(Phone.NUMBER);
-      int displayNameIndex = cursor.getColumnIndex(Phone.DISPLAY_NAME);
       Contact contact = new Contact();
-      contact.setPhoneNumber(cursor.getString(phoneNumberIndex));
-      contact.setDisplayName(cursor.getString(displayNameIndex));
+      if (cursor.moveToFirst()) {
+        //int phoneNumberIndex = cursor.getColumnIndex(Phone.NUMBER);
+        int displayNameIndex = cursor.getColumnIndex(Phone.DISPLAY_NAME);
+        //contact.setPhoneNumber(cursor.getString(phoneNumberIndex));
+        contact.setDisplayName(cursor.getString(displayNameIndex));
+      } else {
+        contact.setDisplayName("Unknown");
+      }
       return contact;
     }
   }
@@ -86,12 +87,9 @@ public class SmsRepository {
       }
     })
         .map((messages) -> messages.stream()
-            .map((message) -> {
-              message.setContact(getContact(
-                  Uri.withAppendedPath(Contacts.CONTENT_URI, message.getContactId()).buildUpon()
-                      .build()));
-              return message;
-            })
+            .peek((message) -> message.setContact(getContact(
+                Uri.withAppendedPath(Contacts.CONTENT_URI, message.getContactId()).buildUpon()
+                    .build())))
             .collect(Collectors.toList())
         )
         .subscribeOn(Schedulers.io());

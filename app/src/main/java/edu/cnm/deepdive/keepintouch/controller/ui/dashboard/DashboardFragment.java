@@ -1,18 +1,21 @@
 package edu.cnm.deepdive.keepintouch.controller.ui.dashboard;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import edu.cnm.deepdive.keepintouch.adapter.AutoReplyAdapter;
+import edu.cnm.deepdive.keepintouch.adapter.MessageAdapter;
 import edu.cnm.deepdive.keepintouch.databinding.FragmentDashboardBinding;
+import edu.cnm.deepdive.keepintouch.model.dto.Message;
+import edu.cnm.deepdive.keepintouch.model.entity.AutoReply;
 import edu.cnm.deepdive.keepintouch.viewmodel.MainViewModel;
+import java.util.List;
 
 /**
  * A fragment that houses the messages and contact info of the user's contacts
@@ -22,25 +25,8 @@ public class DashboardFragment extends Fragment {
   private FragmentDashboardBinding binding;
 
   private MainViewModel viewModel;
-
-
-  @Override
-  public void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    Bundle args = getArguments();
-    // Do whatever necessary with args
-  }
-
-  @Override
-  public void onAttach(@NonNull Context context) {
-    if (getContext() == null){
-      Log.d(getClass().getSimpleName(), "no Context");
-    }
-    super.onAttach(context);
-    if (getContext() != null){
-      Log.d(getClass().getSimpleName(), "have Context");
-    }
-  }
+  private List<Message> messages;
+  private List<? extends AutoReply> autoReplies;
 
   /**
    * Creates a view and binds this fragment to it.
@@ -63,17 +49,27 @@ public class DashboardFragment extends Fragment {
     //Get references to a ViewModel instance, set observers on LiveData
     viewModel =
         new ViewModelProvider(this).get(MainViewModel.class);
-//    viewModel.getMessages().observe(getViewLifecycleOwner(), (messages) -> {
-//      //TODO create an adapter containing messages and attach that adapter to my RecyclerView
-//      AutoReplyAdapter adapter = new AutoReplyAdapter(getContext()); // find what's missing
-//      //added a context to this fragment!
-//      binding.showAutoReplies.setAdapter(adapter);
-//    });
+    viewModel.getMessages().observe(getViewLifecycleOwner(), (messages) -> {
+      this.messages = messages;
+      populateRecyclerView();
+    });
 
     viewModel.getAutoReplies().observe(getViewLifecycleOwner(), (autoReplies) -> {
-      AutoReplyAdapter adapter = new AutoReplyAdapter(getContext(), autoReplies); // find what's missing
-      //added a context to this fragment!
-      binding.showAutoReplies.setAdapter(adapter);
+      this.autoReplies = autoReplies;
+      populateRecyclerView();
     });
+    viewModel.getThrowable().observe(getViewLifecycleOwner(), (throwable) -> {
+      if (throwable != null) {
+        Toast.makeText(getContext(), throwable.getMessage(), Toast.LENGTH_LONG).show();
+      }
+    });
+  }
+
+  private void populateRecyclerView () {
+    if (messages != null && autoReplies != null) {
+      MessageAdapter adapter = new MessageAdapter(getContext(), messages, autoReplies, (message, autoReply) ->
+          Log.d(getClass().getSimpleName(), String.format("%s selected for %s", autoReply, message.getBody())));
+      binding.messages.setAdapter(adapter);
+    }
   }
 }

@@ -11,9 +11,9 @@
     android:id="@+id/text_dashboard"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
-    android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp"
+    android:paddingTop="8dp"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp"
     android:background="@color/sunset_orange"
     android:text="Nudgin' you... Send a message to:"
     android:textAlignment="center"
@@ -25,7 +25,7 @@
     />
 
   <androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/show_auto_replies"
+    android:id="@+id/messages"
     android:layout_width="match_parent"
     android:layout_height="0dp"
     android:padding="@dimen/half_static_spacing"
