@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.keepintouch.controller.ui.notifications;
+package edu.cnm.deepdive.keepintouch.controller.ui.toSms;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import edu.cnm.deepdive.keepintouch.R;
 
-public class NotificationsFragment extends Fragment implements OnItemSelectedListener {
+public class ToSmsFragment extends Fragment implements OnItemSelectedListener {
 
-  private NotificationsViewModel notificationsViewModel;
+  private ToSmsViewModel toSmsViewModel;
 
   public View onCreateView(@NonNull LayoutInflater inflater,
       ViewGroup container, Bundle savedInstanceState) {
-    notificationsViewModel =
-        ViewModelProviders.of(this).get(NotificationsViewModel.class);
-    View root = inflater.inflate(R.layout.fragment_notifications, container, false);
+    toSmsViewModel =
+        ViewModelProviders.of(this).get(ToSmsViewModel.class);
+    View root = inflater.inflate(R.layout.fragment_to_sms, container, false);
     final TextView textView = root.findViewById(R.id.text_notifications);
-    notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+    toSmsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
       @Override
       public void onChanged(@Nullable String s) {
         textView.setText(s);

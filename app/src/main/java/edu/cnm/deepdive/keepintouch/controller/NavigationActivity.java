@@ -7,11 +7,6 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -23,7 +18,6 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import edu.cnm.deepdive.keepintouch.R;
 import edu.cnm.deepdive.keepintouch.service.GoogleSignInService;
-import edu.cnm.deepdive.keepintouch.viewmodel.MainViewModel;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -43,7 +37,7 @@ public class NavigationActivity extends AppCompatActivity {
     // Passing each menu ID as a set of Ids because each
     // menu should be considered as top level destinations.
     AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-        R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
+        R.id.navigation_home, R.id.navigation_messages, R.id.navigation_to_sms)
         .build();
     NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
     NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);

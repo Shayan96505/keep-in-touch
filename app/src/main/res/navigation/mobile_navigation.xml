@@ -12,15 +12,15 @@
     tools:layout="@layout/fragment_home"/>
 
   <fragment
-    android:id="@+id/navigation_dashboard"
-    android:label="@string/title_dashboard"
-    android:name="edu.cnm.deepdive.keepintouch.controller.ui.dashboard.DashboardFragment"
-    tools:layout="@layout/fragment_dashboard"/>
+    android:id="@+id/navigation_messages"
+    android:label="@string/title_messages"
+    android:name="edu.cnm.deepdive.keepintouch.controller.ui.messages.MessagesFragment"
+    tools:layout="@layout/fragment_messages"/>
 
   <fragment
-    android:id="@+id/navigation_notifications"
-    android:label="@string/title_notifications"
-    android:name="edu.cnm.deepdive.keepintouch.controller.ui.notifications.NotificationsFragment"
-    tools:layout="@layout/fragment_notifications"/>
+    android:id="@+id/navigation_to_sms"
+    android:label="@string/title_to_sms"
+    android:name="edu.cnm.deepdive.keepintouch.controller.ui.toSms.ToSmsFragment"
+    tools:layout="@layout/fragment_to_sms"/>
 
 </navigation>

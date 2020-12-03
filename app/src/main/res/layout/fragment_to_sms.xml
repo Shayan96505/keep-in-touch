@@ -6,7 +6,7 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   android:background="@drawable/background_fill"
-  tools:context=".controller.ui.notifications.NotificationsFragment">
+  tools:context=".controller.ui.toSms.ToSmsFragment">
 
   <androidx.constraintlayout.widget.Guideline
     android:id="@+id/guideline"
@@ -49,7 +49,9 @@
     android:layout_marginStart="8dp"
     android:layout_marginEnd="8dp"
     android:textAlignment="center"
-    android:textSize="14dp"
+    android:textSize="20sp"
+    android:fontFamily="sans-serif-condensed-medium"
+    android:textStyle="bold"
     app:layout_constraintBottom_toBottomOf="@id/button1"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"

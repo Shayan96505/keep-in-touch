@@ -4,9 +4,10 @@
   <string name="sign_out">Sign out</string>
   <string name="title_activity_main">NavActivity</string>
   <string name="title_home">Home</string>
-  <string name="title_dashboard">Dashboard</string>
-  <string name="title_notifications">Notifications</string>
+  <string name="title_messages">Messages</string>
+  <string name="title_to_sms">To SMS</string>
   <string name="yes">Yes!</string>
   <string name="no">No!</string>
   <string name="greeting">Welcome to KiT \n Please select your user type.</string>
+  <string name="nudge">Nudgin\' you… Send a message to:</string>
 </resources>

@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.keepintouch.controller.ui.dashboard;
+package edu.cnm.deepdive.keepintouch.controller.ui.messages;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import edu.cnm.deepdive.keepintouch.adapter.MessageAdapter;
-import edu.cnm.deepdive.keepintouch.databinding.FragmentDashboardBinding;
+import edu.cnm.deepdive.keepintouch.databinding.FragmentMessagesBinding;
 import edu.cnm.deepdive.keepintouch.model.dto.Message;
 import edu.cnm.deepdive.keepintouch.model.entity.AutoReply;
 import edu.cnm.deepdive.keepintouch.viewmodel.MainViewModel;
@@ -20,9 +20,9 @@ import java.util.List;
 /**
  * A fragment that houses the messages and contact info of the user's contacts
  */
-public class DashboardFragment extends Fragment {
+public class MessagesFragment extends Fragment {
 
-  private FragmentDashboardBinding binding;
+  private FragmentMessagesBinding binding;
 
   private MainViewModel viewModel;
   private List<Message> messages;
@@ -37,8 +37,7 @@ public class DashboardFragment extends Fragment {
    */
   public View onCreateView(@NonNull LayoutInflater inflater,
       ViewGroup container, Bundle savedInstanceState) {
-    binding = FragmentDashboardBinding.inflate(inflater);
-
+    binding = FragmentMessagesBinding.inflate(inflater);
     return binding.getRoot();
   }
 

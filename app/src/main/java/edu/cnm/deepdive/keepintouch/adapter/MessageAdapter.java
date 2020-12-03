@@ -91,6 +91,7 @@ public class MessageAdapter extends RecyclerView.Adapter<Holder> {
       message = messages.get(position);
       binding.contact.setText(message.getContact().getDisplayName());
       binding.message.setText(message.getBody());
+      binding.date.setText(String.valueOf(message.getSent()));
     }
 
     @Override

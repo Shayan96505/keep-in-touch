@@ -3,4 +3,6 @@
   <color name="colorPrimary">#ff8000</color>
   <color name="colorPrimaryDark">#000000</color>
   <color name="colorAccent">#F2AA4C</color>
+  <color name="kitLogoColor">#FA6800</color>
+  <color name="white">#FFFFFF</color>
 </resources>
