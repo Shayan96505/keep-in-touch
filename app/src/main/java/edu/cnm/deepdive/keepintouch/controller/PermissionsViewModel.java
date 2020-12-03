@@ -34,7 +34,7 @@ public class PermissionsViewModel extends ViewModel {
   }
 
   /**
-   * REvoke currently granted permissions with this method
+   * Revoke currently granted permissions with this method
    * @param permission, a string of permissions to be revoked.
    */
   public void revokePermission(String permission) {

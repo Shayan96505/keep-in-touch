@@ -5,7 +5,7 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:background="@color/colorAccent"
+  android:background="@drawable/background_fill"
   tools:context=".controller.ui.notifications.NotificationsFragment">
 
   <androidx.constraintlayout.widget.Guideline
@@ -22,6 +22,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="@string/yes"
+    android:background="@drawable/rounded_buttons"
+    android:textColor="@color/colorPrimaryDark"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintStart_toStartOf="parent"
@@ -32,6 +34,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="@string/no"
+    android:background="@drawable/rounded_buttons"
+    android:textColor="@color/colorPrimaryDark"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintStart_toStartOf="@id/guideline"
