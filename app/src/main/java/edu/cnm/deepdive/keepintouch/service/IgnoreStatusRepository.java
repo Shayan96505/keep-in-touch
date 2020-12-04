@@ -18,6 +18,7 @@ public class IgnoreStatusRepository {
 
   /**
    * A constructor for this repository.
+   *
    * @param context , takes in a context object
    */
   public IgnoreStatusRepository(Context context) {
@@ -26,9 +27,10 @@ public class IgnoreStatusRepository {
   }
 
   /**
+   * A save method to update the ignoreStatus on each contact. If there is none, it inserts a new
+   * one. else, it just updates the ignore status on the other contact.
    *
-   * @param ignoreStatus
-   * @return
+   * @param ignoreStatus , takes in an IgnoreStatus object, which is tied to a contact.
    */
   public Completable save(IgnoreStatus ignoreStatus) {
     return (ignoreStatus.getIgnoreStatusId() == 0)
@@ -40,9 +42,9 @@ public class IgnoreStatusRepository {
   }
 
   /**
+   * This is a method that deletes the ignore status.
    *
-   * @param ignoreStatus
-   * @return
+   * @param ignoreStatus , takes in an IgnoreStatus object, which is tied to a contact.
    */
   public Completable delete(IgnoreStatus ignoreStatus) {
     return (ignoreStatus.getIgnoreStatusId() == 0) ?
@@ -52,7 +54,8 @@ public class IgnoreStatusRepository {
   }
 
   /**
-   *  
+   * A method to check for the ignore status of each contact.
+   *
    * @param contactUri , a String that represents the contact in Android.
    * @return a list of livedata, type Ignore status
    */
@@ -61,7 +64,6 @@ public class IgnoreStatusRepository {
   }
 
   /**
-   *
    * @param numContacts , an int that represents the top ignored contacts, for instance the top 5.
    *                    Helpful for users to consider deleting these contacts or re-evaluating.
    * @return a list of livedata, type Ignore status
@@ -72,6 +74,7 @@ public class IgnoreStatusRepository {
 
   /**
    * A method that checks to see all of your ignored contacts.
+   *
    * @param ignoreLimit , how many times a user is ignored, before they get put on the ignore list.
    * @return a list of livedata, type Ignore status
    */
@@ -80,7 +83,8 @@ public class IgnoreStatusRepository {
   }
 
   /**
-   *  A method that get's the ignore status by Id.
+   * A method that gets the ignore status by Id.
+   *
    * @param ignoreStatusId , a long that is ignorestatusId.
    * @return a live data, type Ignore status
    */
