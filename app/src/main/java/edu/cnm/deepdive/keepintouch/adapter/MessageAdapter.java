@@ -15,8 +15,8 @@ import java.util.List;
 
 /**
  * This is an adapter for the recyclerView that contains both the late messages from contacts and
- * the autoReplies that they can send back to the their contacts. It contains basic info like
- * contact name, the message, and date received.
+ * the autoReplies that they can send back to the their contacts. It deals with helping process
+ * basic info like contact name, the message, and date received for display.
  */
 public class MessageAdapter extends RecyclerView.Adapter<Holder> {
 
@@ -29,7 +29,7 @@ public class MessageAdapter extends RecyclerView.Adapter<Holder> {
   private final DateFormat timeFormatter;
 
   /**
-   * Constructor for the messaging RecyclerView
+   * Constructor for the messaging RecyclerView.
    *
    * @param context     is the context of the this activity
    * @param messages    a list of autoReplies prepopulated into the database with a CSV file parser
@@ -80,6 +80,10 @@ public class MessageAdapter extends RecyclerView.Adapter<Holder> {
     private final ItemMessageBinding binding;
     private Message message;
 
+    /**
+     *  A constructor for the Holder class that holds the views for Recycler View.
+     * @param binding , a binding object for the item_message layout xml.
+     */
     public Holder(ItemMessageBinding binding) {
       super(binding.getRoot());
       this.binding = binding;

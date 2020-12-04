@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import java.util.HashSet;
 import java.util.Set;
-import androidx.lifecycle.ViewModel;
 
 /**
  * A view model for the Permissions Dialogue fragment

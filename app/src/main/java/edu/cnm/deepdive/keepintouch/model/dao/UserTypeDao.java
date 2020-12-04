@@ -47,15 +47,13 @@ public interface UserTypeDao {
   @Delete
   Single<Integer> delete(Collection<UserType> userTypes);
 
-
   @Query("SELECT * FROM UserType WHERE `user_type_id` = :userTypeId")
   LiveData<UserType> getUserType(long userTypeId);
 
   @Query("SELECT * FROM UserType WHERE `name` = :name")
   LiveData<UserType> getUserTypeByName(String name);
 
-  // added these transaction queries to diagnose with todd
-  // FixME check these additional queries and the 2nd pojo class.
+  // added these transaction queries for diagnostic purposes with todd
 
   @Transaction
   @Query("SELECT * FROM UserType WHERE `user_type_id` = :userTypeId")

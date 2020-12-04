@@ -14,10 +14,20 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import edu.cnm.deepdive.keepintouch.R;
 
+/**
+ * The ToSmsFragment class that will lead to the native android messaging application.
+ */
 public class ToSmsFragment extends Fragment implements OnItemSelectedListener {
 
   private ToSmsViewModel toSmsViewModel;
 
+  /**
+   * The deprecated, but built in way to create the view for a fragment in Java.
+   * @param inflater , a Layout inflater
+   * @param container , a View group object
+   * @param savedInstanceState , a bundle object
+   * @return a View object which is how the fragment is displayed.
+   */
   public View onCreateView(@NonNull LayoutInflater inflater,
       ViewGroup container, Bundle savedInstanceState) {
     toSmsViewModel =

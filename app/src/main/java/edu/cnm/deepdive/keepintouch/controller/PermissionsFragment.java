@@ -44,6 +44,7 @@ public class PermissionsFragment extends DialogFragment {
     return fragment;
   }
 
+  //attempted to get the permissions dialogue to pop-up after-checking again for the granted permissions
   @SuppressWarnings("ConstantConditions")
   @NonNull
   @Override

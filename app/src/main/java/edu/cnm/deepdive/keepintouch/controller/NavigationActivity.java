@@ -8,14 +8,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import edu.cnm.deepdive.keepintouch.R;
 import edu.cnm.deepdive.keepintouch.service.GoogleSignInService;
 import java.util.LinkedList;
@@ -98,6 +98,7 @@ public class NavigationActivity extends AppCompatActivity {
 
   /**
    * A helper method that allows us to acknowledge which permissions we need.
+   *
    * @param permissionsToRequest is a string array of which permissions we need to request.
    */
   public void onAcknowledge(String[] permissionsToRequest) {
@@ -118,17 +119,20 @@ public class NavigationActivity extends AppCompatActivity {
     }
     return handled;
   }
+
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
     // Inflate the menu; this adds items to the action bar if it is present.
     getMenuInflater().inflate(R.menu.navigation, menu);
     return true;
   }
+
   @Override
   public boolean onSupportNavigateUp() {
     onBackPressed();
     return true;
   }
+
   /**
    * This method is the logic behind the logout function.
    */
