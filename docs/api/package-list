@@ -1,0 +1,13 @@
+edu.cnm.deepdive.keepintouch
+edu.cnm.deepdive.keepintouch.adapter
+edu.cnm.deepdive.keepintouch.controller
+edu.cnm.deepdive.keepintouch.controller.ui.home
+edu.cnm.deepdive.keepintouch.controller.ui.messages
+edu.cnm.deepdive.keepintouch.controller.ui.toSms
+edu.cnm.deepdive.keepintouch.databinding
+edu.cnm.deepdive.keepintouch.model.dao
+edu.cnm.deepdive.keepintouch.model.dto
+edu.cnm.deepdive.keepintouch.model.entity
+edu.cnm.deepdive.keepintouch.model.pojo
+edu.cnm.deepdive.keepintouch.service
+edu.cnm.deepdive.keepintouch.viewmodel
