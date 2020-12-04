@@ -56,7 +56,7 @@ have offered similar functionality, but there's no app that reminds different us
 
 ## Credits
 
-_Keep In Touch_ was written by Shayan Golafshani, with Nick Bennet and Todd Nordquist.
+_Keep In Touch_ was written by Shayan Golafshani, with contributions from Nick Bennet, Todd Nordquist, Alex Garber, and Isaac Dominguez.
 
 &copy; 2020 Shayan Golafshani. All rights reserved.
 
