@@ -2,6 +2,7 @@
 
 * Android API version 29
 * Tested on an Emulator with a Google Pixel 3a (Android Version 10)
+* Also, tested on a physical Google Pixel 3a (Android Version 11)
 
 
 ## Emulator Specs include:
@@ -106,6 +107,7 @@ hw.gpu.enabled: yes
 #### The app only works in portrait mode & the English Language
 #### 3rd party-libraries include:
 * Google Sign in
+* Reactive X
 
 ### Permissions
 Permissions required include
@@ -117,4 +119,5 @@ The app will not be functional without these permissions, because that's how it 
 text metadata.
 
 
-### External Services used include Google Sign In
+### External Services used include:
+* Google Sign In
