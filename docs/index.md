@@ -60,6 +60,8 @@ _Keep In Touch_ was written by Shayan Golafshani, with contributions from Nick B
 
 &copy; 2020 Shayan Golafshani. All rights reserved.
 
+For copyright &amp; license information on the libraries incorporated into _Keep In Touch_, see [_Notice_](notice.md).
+
 
 
 
