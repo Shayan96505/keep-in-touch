@@ -81,7 +81,8 @@ public class MessageAdapter extends RecyclerView.Adapter<Holder> {
     private Message message;
 
     /**
-     *  A constructor for the Holder class that holds the views for Recycler View.
+     * A constructor for the Holder class that holds the views for Recycler View.
+     *
      * @param binding , a binding object for the item_message layout xml.
      */
     public Holder(ItemMessageBinding binding) {

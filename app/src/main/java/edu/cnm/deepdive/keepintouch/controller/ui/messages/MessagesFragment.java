@@ -1,7 +1,6 @@
 package edu.cnm.deepdive.keepintouch.controller.ui.messages;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,8 +29,9 @@ public class MessagesFragment extends Fragment {
 
   /**
    * Creates a view and binds this fragment to it.
-   * @param inflater , an inflater object
-   * @param container , a container object
+   *
+   * @param inflater           , an inflater object
+   * @param container          , a container object
    * @param savedInstanceState , a saved Instance state.
    * @return a View
    */
@@ -65,10 +65,11 @@ public class MessagesFragment extends Fragment {
     });
   }
 
-  private void populateRecyclerView () {
+  private void populateRecyclerView() {
     if (messages != null && autoReplies != null) {
       MessageAdapter adapter = new MessageAdapter(getContext(), messages, autoReplies,
-          (message, autoReply) -> viewModel.sendMessage(message.getAddress(), autoReply.getMessage()));
+          (message, autoReply) -> viewModel
+              .sendMessage(message.getAddress(), autoReply.getMessage()));
       binding.messages.setAdapter(adapter);
       binding.waitingIndicator.setVisibility(View.GONE);
     }
