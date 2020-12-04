@@ -8,7 +8,7 @@ import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 /**
- * An entity class for autoReply objects stored inside the KitDatabase
+ * An entity class for autoReply fields stored inside the KitDatabase
  */
 @Entity(
     indices = {
@@ -43,26 +43,56 @@ public class AutoReply {
   private long userTypeId;
 
 
+  /**
+   * Gets the AutoReply id
+   *
+   * @return , a long that represents the id
+   */
   public long getAutoReplyId() {
     return autoReplyId;
   }
 
+  /**
+   * Sets the AutoReply id
+   *
+   * @param autoReplyId , a long that represents the id
+   */
   public void setAutoReplyId(long autoReplyId) {
     this.autoReplyId = autoReplyId;
   }
 
+  /**
+   * Gets the actual auto replies.
+   *
+   * @return , a String that is the message making up the AutoReply
+   */
   public String getMessage() {
     return message;
   }
 
+  /**
+   * Sets the actual auto replies.
+   *
+   * @param message , a String that is the message making up the AutoReply
+   */
   public void setMessage(String message) {
     this.message = message;
   }
 
+  /**
+   * Gets the UserType id.
+   *
+   * @return , a long that represents the User Type Id
+   */
   public long getUserTypeId() {
     return userTypeId;
   }
 
+  /**
+   * Sets the UserType id.
+   *
+   * @param userTypeId , a long that represents the User Type Id
+   */
   public void setUserTypeId(long userTypeId) {
     this.userTypeId = userTypeId;
   }

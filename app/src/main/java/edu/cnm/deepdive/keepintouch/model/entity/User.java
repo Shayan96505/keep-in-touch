@@ -7,17 +7,21 @@ import androidx.room.ForeignKey;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-
 //In ROOM, the annotations for Unique Keys and Foreign Indexes go inside the entity annotation,
 // before the beginning of the entity class.
+
+/**
+ * A User entity class that holds the data associated with a User including OauthKey, UserId, and
+ * UserTypeId.
+ */
 @Entity(
     //this is the proper way to denote a Unique Key, give it a name matching from your entity class
-    // and also set it's indices value of unique to true/
+    // and also set its indices value of unique to true/
     indices = @Index(value = "oauth_key", unique = true),
     foreignKeys = {
         //similarly for foreign keys one must denote what class the foreign key is coming from
         //in this case the foreign key is coming from the user type class. In the parent-class column
-        //as well as in the child-class it is name user-type-id, follow our google style guide conventions
+        //as well as in the child-class it is named user-type-id, follow our google style guide conventions
         @ForeignKey(
             entity = UserType.class,
             childColumns = "user_type_id",
@@ -45,26 +49,56 @@ public class User {
   @ColumnInfo(name = "user_type_id", index = true)
   private long userTypeId;
 
+  /**
+   * Getter for userId
+   *
+   * @return , a long id.
+   */
   public long getId() {
     return id;
   }
 
+  /**
+   * Setter for userId.
+   *
+   * @param id , a long id.
+   */
   public void setId(long id) {
     this.id = id;
   }
 
+  /**
+   * Getter for OauthKey
+   *
+   * @return , a String that represent the OauthKey.
+   */
   public String getOauthKey() {
     return oauthKey;
   }
 
+  /**
+   * Setter for OauthKey
+   *
+   * @param oauthKey , a String that represent the OauthKey.
+   */
   public void setOauthKey(String oauthKey) {
     this.oauthKey = oauthKey;
   }
 
+  /**
+   * Getter for userTypeId
+   *
+   * @return , a long id.
+   */
   public long getUserTypeId() {
     return userTypeId;
   }
 
+  /**
+   * Setter for userTypeId
+   *
+   * @param userTypeId ,  a long id.
+   */
   public void setUserTypeId(long userTypeId) {
     this.userTypeId = userTypeId;
   }

@@ -6,6 +6,9 @@ import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 
+/**
+ *  An entity class for ignoreStatus fields stored inside the KitDatabase
+ */
 @Entity(indices = @Index(value = "contact_uri", unique = true))
 public class IgnoreStatus {
 
@@ -23,27 +26,50 @@ public class IgnoreStatus {
   @ColumnInfo(name = "count", index = true)
   private int count;
 
-
+  /**
+   * Gets Ignore Status Id
+   * @return , a long id
+   */
   public long getIgnoreStatusId() {
     return ignoreStatusId;
   }
 
+  /**
+   * Sets Ignore Status Id
+   * @param ignoreStatusId , a long id
+   */
   public void setIgnoreStatusId(long ignoreStatusId) {
     this.ignoreStatusId = ignoreStatusId;
   }
 
+  /**
+   * Gets an Contact Uri
+   * @return a string, that represents a specific contactUri.
+   */
   public String getContactUri() {
     return contactUri;
   }
 
+  /**
+   * Sets an Contact Uri
+   * @param contactUri a string, that represents a specific contactUri.
+   */
   public void setContactUri(String contactUri) {
     this.contactUri = contactUri;
   }
 
+  /**
+   * Gets the count of ignores
+   * @return an int, that represents how many times someone has been ignored
+   */
   public int getCount() {
     return count;
   }
 
+  /**
+   * Gets the count of ignores
+   * @param count an int, that represents how many times someone has been ignored
+   */
   public void setCount(int count) {
     this.count = count;
   }
